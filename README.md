@@ -1,1 +1,1 @@
-fdu.github.io
+blog.multireligionvalsystem.eu.org
