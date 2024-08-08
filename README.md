@@ -1,1 +1,1 @@
-blog.multireligionvalsystem.eu.org
+fdu.multireligionvalsystem.eu.org
