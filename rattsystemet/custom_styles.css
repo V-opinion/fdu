@@ -1,0 +1,9 @@
+.Normal_text {font-family:'Open Sans';font-weight:normal;font-style:normal;font-size:18px;text-decoration:none;text-transform: none;color:#313335;-webkit-text-stroke: 0px black;letter-spacing:0em;}
+.Heading_1 {font-family:'Open Sans';font-weight:300;font-style:normal;font-size:36px;text-decoration:none;text-transform: none;color:#164F70;-webkit-text-stroke: 0px black;letter-spacing:0em;}
+.Title {font-size:48px;color:#FFFFFF;}
+.Heading_2 {font-size:24px;color:#2FA4E7;background-color:Transparent;}
+.Heading_3 {font-weight:600;font-size:20px;background-color:Transparent;}
+.Heading_4 {font-weight:bold;}
+.Normal_text_2 {font-family:'Noto Serif';font-weight:normal;font-style:italic;font-size:18px;text-decoration:none;text-transform: none;color:#2FA4E7;-webkit-text-stroke: 0px black;letter-spacing:0em;}
+.Small_text {font-style:italic;font-size:10px;}
+.Quote_text {font-family:'Noto Serif';font-weight:normal;font-style:italic;font-size:32px;text-decoration:none;text-transform: none;color:#2FA4E7;-webkit-text-stroke: 0px black;letter-spacing:0em;}
