@@ -42,7 +42,7 @@ Konfliktlösningsmodell
 document.addEventListener('DOMContentLoaded', function(event)
 {
    var PanelMenu1 = document.querySelector('#wb_PanelMenu1');
-   var bsPanelMenu1 = new bootstrap.Tooltip(PanelMenu1, {offset:[0,14],placement:'left', html: true, sanitize: false, title: '<span style="color:#F5F5F5;font-family:Arial;font-size:13px;">Click the hamburger icon to open the menu</span>', trigger: 'manual', animation: true, customClass:'ToolTip1'});
+   var bsPanelMenu1 = new bootstrap.Tooltip(PanelMenu1, {offset:[0,14],placement:'left', html: true, sanitize: false, title: '<span style="color:#F5F5F5;font-family:Arial;font-size:13px;">FN:s rollspel för fred</span>', trigger: 'manual', animation: true, customClass:'ToolTip1'});
    PanelMenu1.addEventListener('inserted.bs.tooltip', function(e)
    {
       var tooltip = document.getElementById(e.target.getAttribute('aria-describedby'));
