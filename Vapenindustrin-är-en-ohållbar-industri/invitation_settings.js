@@ -5,9 +5,9 @@ SurveyInvitation.load_invitation_settings_file_callback({
 
             "translatable_hrefs": {
 
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=en"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=en"
             },
-            "css_file": "https://ec.europa.eu/wel/surveys/wr_survey03/data/invitation_settings/eu_online_survey/01/css/main.css",
+            "css_file": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdurveys/wr_survey03/data/invitation_settings/eu_online_survey/01/css/main.css",
             "markup": "<div class='ecsi' id='ec-survey-pop-up'> <div class='ecsi-footer' id='ec-survey-pop-up-footer'></div><div class='ecsi-header' id='ec-survey-pop-up-header'> <div class='ecsi-title' id='ec-survey-pop-up-title'></div><div class='ecsi-close' id='ec-survey-pop-up-close'> <a class='ecsi-button-close' id='ec-survey-pop-up-button-close'></a> </div></div><div class='ecsi-body' id='ec-survey-pop-up-body'> <div class='ecsi-body-main-text' id='ec-survey-pop-up-body-main-text'> </div><div class='ecsi-body-checkbox'> <input type='checkbox' class='ecsi-checkbox' id='ec-survey-pop-up-checkbox-accept-terms' name='ec-survey-pop-up-checkbox-accept-terms' value='0'/> <label class='ecsi-body-checkbox-label' id='ec-survey-pop-up-body-checkbox-accept-terms-label' for='ec-survey-pop-up-checkbox-accept-terms'><span id='ec-survey-pop-up-body-privacy-link-pre'></span> <a class='ecsi-body-privacy-link' id='ec-survey-pop-up-body-privacy-link' target='_blank'></a> <span id='ec-survey-pop-up-body-privacy-link-post'></span></label> </div><div class='ecsi-body-buttons' id='ec-survey-pop-up-body-buttons'> <div id='ecsi-body-button-participate-now-wrapper' class='disabled'><a class='ecsi-body-button-participate-after-visit' id='ec-survey-pop-up-body-button-participate-after-visit'></a></div><a class='ecsi-body-button-do-not-participate' id='ec-survey-pop-up-body-button-do-not-participate'></a> </div><div class='ecsi-body-checkbox' id='ec-survey-pop-up-body-checkbox'> <input type='checkbox' class='ecsi-checkbox' id='ec-survey-pop-up-checkbox-do-not-show-again' name='ec-survey-pop-up-checkbox-do-not-show-again' value='0'/> <label class='ecsi-body-checkbox-label' id='ec-survey-pop-up-body-checkbox-label' for='ec-survey-pop-up-checkbox-do-not-show-again'></label> </div><div class='ecsi-body-cookie-disclaimer' id='ec-survey-pop-up-body-cookie-disclaimer'></div></div></div>",
             "translatable_texts": {
 
@@ -15,7 +15,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
                 "ec-survey-pop-up-body-privacy-link": "Privacy statement",
                 "ec-survey-pop-up-body-privacy-link-pre": "I have read and agree with the",
                 "ec-survey-pop-up-body-privacy-link-post": "",
-                "ec-survey-pop-up-title": "EU/European Commission survey",
+                "ec-survey-pop-up-title": "FDU survey",
                 "ec-survey-pop-up-body-button-do-not-participate": "No, thank you",
                 "ec-survey-pop-up-button-close": "Close",
                 "ec-survey-pop-up-body-button-participate-after-visit": "OK",
@@ -27,17 +27,17 @@ SurveyInvitation.load_invitation_settings_file_callback({
 
             "translatable_hrefs": {
 
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=en",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=en"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=en",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=en"
             },
-            "css_file": "https://ec.europa.eu/wel/surveys/wr_survey03/data/invitation_settings/eu_online_survey/01/css/main.css",
+            "css_file": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/surveys/wr_survey03/data/invitation_settings/eu_online_survey/01/css/main.css",
             "markup": "<div class='ecsi' id='ec-survey-pop-up'> <div class='ecsi-footer' id='ec-survey-pop-up-footer'></div><div class='ecsi-header' id='ec-survey-pop-up-header'> <div class='ecsi-title' id='ec-survey-pop-up-title'></div><div class='ecsi-close' id='ec-survey-pop-up-close'> <a class='ecsi-button-close' id='ec-survey-pop-up-button-close'></a> </div></div><div class='ecsi-body' id='ec-survey-pop-up-body'> <div class='ecsi-body-main-text' id='ec-survey-pop-up-body-main-text'> </div><div class='ecsi-body-buttons' id='ec-survey-pop-up-body-buttons'> <a class='ecsi-body-button-participate-now' id='ec-survey-pop-up-body-button-participate-now' target='_blank'></a> <a class='ecsi-body-button-escape-invitation-after' id='ec-survey-pop-up-body-button-escape-invitation-after'></a> </div><div class='ecsi-body-privacy' id='ec-survey-pop-up-body-privacy'> <a class='ecsi-body-privacy-link' id='ec-survey-pop-up-body-privacy-link' target='_blank'></a> </div></div></div>",
             "translatable_texts": {
 
                 "ec-survey-pop-up-body-checkbox-label": "Don\u2019t ask me about this survey again.",
                 "ec-survey-pop-up-body-button-escape-invitation-after": "No thank you",
                 "ec-survey-pop-up-body-privacy-link": "Privacy statement",
-                "ec-survey-pop-up-title": "EU/European Commission survey",
+                "ec-survey-pop-up-title": "FDU survey",
                 "ec-survey-pop-up-body-main-text": "How satisfied are you with our websites? Take part in this survey and help us improve your experience. No personal data will be collected.",
                 "ec-survey-pop-up-button-close": "Close",
                 "ec-survey-pop-up-body-button-participate-now": "OK"
@@ -50,7 +50,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "bg": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=bg"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=bg"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Не ми задавайте въпроси за това проучване отново.",
@@ -67,8 +67,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=bg",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=bg"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=bg",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/runner/eu_online_survey?surveylanguage=bg"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Не, благодаря",
@@ -83,7 +83,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "cs": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=cs"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=cs"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Dotaz k tomuto průzkumu již nezobrazovat.",
@@ -100,13 +100,13 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=cs",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=cs"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=cs",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/runner/eu_online_survey?surveylanguage=cs"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Ne, děkuji",
                 "ec-survey-pop-up-body-privacy-link": "Prohlášení o ochraně osobních údajů",
-                "ec-survey-pop-up-title": "Průzkum EU / Evropské komise",
+                "ec-survey-pop-up-title": "Průzkum fdu",
                 "ec-survey-pop-up-body-main-text": "Jste s našimi internetovými stránkami spokojeni? Účastí v tomto průzkumu nám pomůžete optimalizovat naše stránky. Nebudou při tom shromažďovány žádné osobní údaje.",
                 "ec-survey-pop-up-button-close": "Ne, děkuji",
                 "ec-survey-pop-up-body-button-participate-now": "OK"
@@ -116,14 +116,14 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "da": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=da"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=da"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Spørg mig ikke om denne undersøgelse igen.",
                 "ec-survey-pop-up-body-privacy-link": "databeskyttelseserklæringen",
                 "ec-survey-pop-up-body-privacy-link-pre": "Jeg har læst og er enig i",
                 "ec-survey-pop-up-body-privacy-link-post": "",
-                "ec-survey-pop-up-title": "EU's/Europa-Kommissionens brugerundersøgelse",
+                "ec-survey-pop-up-title": "FDU brugerundersøgelse",
                 "ec-survey-pop-up-body-button-do-not-participate": "Nej tak",
                 "ec-survey-pop-up-button-close": "Close",
                 "ec-survey-pop-up-body-button-participate-after-visit": "Ja selvfølgelig",
@@ -133,8 +133,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=da",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=da"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=da",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=da"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nej tak",
@@ -149,14 +149,14 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "de": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=de"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=de"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Weisen Sie mich bitte nicht mehr auf diese Umfrage hin.",
                 "ec-survey-pop-up-body-privacy-link": "Datenschutzerklärung",
                 "ec-survey-pop-up-body-privacy-link-pre": "Ich habe die",
                 "ec-survey-pop-up-body-privacy-link-post": "gelesen und erkläre mich damit einverstanden.",
-                "ec-survey-pop-up-title": "Umfrage der EU/Europäischen Kommission",
+                "ec-survey-pop-up-title": "Umfrage der FDU",
                 "ec-survey-pop-up-body-button-do-not-participate": "Nein danke",
                 "ec-survey-pop-up-button-close": "Close",
                 "ec-survey-pop-up-body-button-participate-after-visit": "OK",
@@ -166,8 +166,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=de",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=de"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fdusurvey/home/privacystatement?language=de",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=de"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nein danke",
@@ -182,7 +182,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "el": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=el"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=el"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Παρακαλώ μην με ξαναρωτήσετε σχετικά με αυτήν την έρευνα.",
@@ -199,8 +199,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=el",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=el"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=el",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=el"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Όχι ευχαριστώ",
@@ -215,7 +215,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "es": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=es"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=es"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "No deseo que se me pregunte más sobre esta encuesta.",
@@ -232,8 +232,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=es",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=es"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=es",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=es"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "No, gracias",
@@ -248,7 +248,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "et": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=et"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=et"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Ärge küsige minult enam selle küsitluse kohta.",
@@ -265,8 +265,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=et",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=et"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=et",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=et"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Tänan, ei",
@@ -281,7 +281,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "fi": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=fi"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=fi"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Älä kysy uudestaan tästä kyselystä.",
@@ -298,8 +298,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=fi",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=fi"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=fi",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=fi"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Ei kiitos",
@@ -314,7 +314,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "fr": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=fr"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=fr"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Ne plus me proposer de participer à ce sondage.",
@@ -331,8 +331,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=fr",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=fr"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=fr",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=fr"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Non merci",
@@ -347,7 +347,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "ga": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=ga"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=ga"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Ná hiarr orm arís an suirbhé seo a dhéanamh.",
@@ -364,8 +364,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=ga",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=ga"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=ga",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=ga"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Níor mhaith liom, go raibh maith agat",
@@ -380,7 +380,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "hr": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=hr"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=hr"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Nemojte me pitati o ovom istraživanju ponovno.",
@@ -397,8 +397,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=hr",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=hr"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=hr",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=hr"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Ne, hvala",
@@ -413,7 +413,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "hu": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=hu"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=hu"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Ne kérdezzen többé a felmérésről.",
@@ -430,8 +430,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=hu",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=hu"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=hu",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=hu"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nem, köszönöm",
@@ -446,7 +446,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "it": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=it"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=it"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Non chiedermi di nuovo di partecipare a questo sondaggio.",
@@ -463,8 +463,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=it",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=it"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=it",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=it"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "No grazie",
@@ -479,7 +479,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "lt": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=lt"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=lt"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Daugiau nesiūlyti man šios apklausos.",
@@ -496,8 +496,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=lt",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=lt"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=lt",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=lt"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Ačiū, ne",
@@ -512,7 +512,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "lv": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=lv"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=lv"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Vairs nejautājiet man par šo aptauju.",
@@ -529,8 +529,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=lv",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=lv"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=lv",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=lv"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nevēlos atbildēt",
@@ -545,7 +545,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "mt": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=mt"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=mt"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Terġax tistaqsini dwar dan l-istħarriġ.",
@@ -562,8 +562,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=mt",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=mt"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=mt",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=mt"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Le grazzi",
@@ -578,7 +578,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "nl": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=nl"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=nl"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Ik wil geen vragen meer over deze enquête.",
@@ -595,8 +595,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=nl",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=nl"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=nl",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=nl"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nee, dank u",
@@ -611,7 +611,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "pl": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=pl"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=pl"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Nie pokazuj więcej pytania o tę ankietę.",
@@ -628,8 +628,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=pl",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=pl"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=pl",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=pl"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nie, dziękuję",
@@ -644,7 +644,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "pt": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=pt"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=pt"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Não perguntar novamente acerca deste inquérito.",
@@ -661,8 +661,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=pt",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=pt"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=pt",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=pt"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Não, obrigado",
@@ -677,7 +677,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "ro": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=ro"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=ro"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Nu mă mai întreba despre acest sondaj.",
@@ -694,8 +694,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=ro",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=ro"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=ro",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=ro"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nu, mulţumesc",
@@ -710,7 +710,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "sk": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=sk"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=sk"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Viac sa nepýtať na tento prieskum.",
@@ -727,8 +727,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=sk",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=sk"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=sk",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=sk"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nie, ďakujem",
@@ -743,7 +743,7 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "sl": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=sl"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=sl"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Ne sprašuj me več o tej anketi.",
@@ -760,8 +760,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=sl",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=sl"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=sl",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=sl"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Ne, hvala",
@@ -776,14 +776,14 @@ SurveyInvitation.load_invitation_settings_file_callback({
     "sv": {
         "welcome": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=sv"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=sv"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-checkbox-label": "Fråga mig inte om denna undersökning igen.",
                 "ec-survey-pop-up-body-privacy-link": "reglerna för skydd av personuppgifter",
                 "ec-survey-pop-up-body-privacy-link-pre": "Jag har läst och godkänner",
                 "ec-survey-pop-up-body-privacy-link-post": "",
-                "ec-survey-pop-up-title": " EU/Europeiska kommissionen-enkät",
+                "ec-survey-pop-up-title": " FDU-enkät",
                 "ec-survey-pop-up-body-button-do-not-participate": "Nej tack",
                 "ec-survey-pop-up-button-close": "Close",
                 "ec-survey-pop-up-body-button-participate-after-visit": "OK",
@@ -793,8 +793,8 @@ SurveyInvitation.load_invitation_settings_file_callback({
         },
         "reminder": {
             "translatable_hrefs": {
-                "ec-survey-pop-up-body-privacy-link": "https://ec.europa.eu/eusurvey/home/privacystatement?language=sv",
-                "ec-survey-pop-up-body-button-participate-now": "https://ec.europa.eu/eusurvey/runner/eu_online_survey?surveylanguage=sv"
+                "ec-survey-pop-up-body-privacy-link": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/home/privacystatement?language=sv",
+                "ec-survey-pop-up-body-button-participate-now": "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/fduusurvey/runner/eu_online_survey?surveylanguage=sv"
             },
             "translatable_texts": {
                 "ec-survey-pop-up-body-button-escape-invitation-after": "Nej tack",
@@ -804,7 +804,3 @@ SurveyInvitation.load_invitation_settings_file_callback({
                 "ec-survey-pop-up-button-close": "Nej tack",
                 "ec-survey-pop-up-body-button-participate-now": "OK"
             }
-        }
-    },
-
-});
