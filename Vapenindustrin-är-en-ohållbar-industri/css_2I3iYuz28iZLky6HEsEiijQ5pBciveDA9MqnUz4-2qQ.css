@@ -1,0 +1,4 @@
+/* @license GNU-GPL-2.0-or-later https://www.drupal.org/licensing/faq */
+@media screen{.inline-external-icon{display:inline!important;}
+}
+.custom-highlight-marker-ecl{text-decoration:underline;text-decoration-color:var(--ecl-color-secondary-60)!important;text-decoration-thickness:40%;text-decoration-skip-ink:none;text-underline-offset:-0.2em;background-color:transparent!important;}
