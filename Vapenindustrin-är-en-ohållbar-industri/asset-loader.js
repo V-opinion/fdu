@@ -23,45 +23,45 @@ var checkExist = setInterval(function(that) {
       clearInterval(checkExist);
       
       var script_runtime_es2015 = document.createElement("script"); 
-      script_runtime_es2015.src = "https://europa.eu/assets/comm/europaeu/resources/jsassets/social-media-directory/runtime-es2015.js"; 
+      script_runtime_es2015.src = "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/resources/jsassets/social-media-directory/runtime-es2015.js"; 
       script_runtime_es2015.type = "module"
       document.body.appendChild(script_runtime_es2015);
 
       var script_runtime_es5 = document.createElement("script"); 
-      script_runtime_es5.src = "https://europa.eu/assets/comm/europaeu/resources/jsassets/social-media-directory/runtime-es5.js"; 
+      script_runtime_es5.src = "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/jsassets/social-media-directory/runtime-es5.js"; 
       script_runtime_es5.noModule = true; 
       script_runtime_es5.defer = true; 
       document.body.appendChild(script_runtime_es5);
 
       var script_polyfills_es5 = document.createElement("script"); 
-      script_polyfills_es5.src = "https://europa.eu/assets/comm/europaeu/resources/jsassets/social-media-directory/polyfills-es5.js"; 
+      script_polyfills_es5.src = "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/resources/jsassets/social-media-directory/polyfills-es5.js"; 
       script_polyfills_es5.noModule = true; 
       script_polyfills_es5.defer = true; 
       document.body.appendChild(script_polyfills_es5);
 
       var script_polyfills_es2015 = document.createElement("script"); 
-      script_polyfills_es2015.src = "https://europa.eu/assets/comm/europaeu/resources/jsassets/social-media-directory/polyfills-es2015.js"; 
+      script_polyfills_es2015.src = "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/resources/jsassets/social-media-directory/polyfills-es2015.js"; 
       script_polyfills_es2015.type = "module"
       document.body.appendChild(script_polyfills_es2015);
 
       var script_styles_es5 = document.createElement("script"); 
-      script_styles_es5.src = "https://europa.eu/assets/comm/europaeu/resources/jsassets/social-media-directory/styles-es5.js"; 
+      script_styles_es5.src = "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/resources/jsassets/social-media-directory/styles-es5.js"; 
       script_styles_es5.noModule = true; 
       script_styles_es5.defer = true; 
       document.body.appendChild(script_styles_es5);
 
       var script_styles_es2015 = document.createElement("script"); 
-      script_styles_es2015.src = "https://europa.eu/assets/comm/europaeu/resources/jsassets/social-media-directory/styles-es2015.js"; 
+      script_styles_es2015.src = "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/jsassets/social-media-directory/styles-es2015.js"; 
       script_styles_es2015.type = "module"
       document.body.appendChild(script_styles_es2015);
 
       var script_main_es2015 = document.createElement("script"); 
-      script_main_es2015.src = "https://europa.eu/assets/comm/europaeu/resources/jsassets/social-media-directory/main-es2015.js"; 
+      script_main_es2015.src = "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/resources/jsassets/social-media-directory/main-es2015.js"; 
       script_main_es2015.type = "module"
       document.body.appendChild(script_main_es2015);
 
       var script_main_es5 = document.createElement("script"); 
-      script_main_es5.src = "https://europa.eu/assets/comm/europaeu/resources/jsassets/social-media-directory/main-es5.js"; 
+      script_main_es5.src = "https://fdu.multireligionvalsystem.eu.org/Vapenindustrin-är-en-ohållbar-industri/resources/jsassets/social-media-directory/main-es5.js"; 
       script_main_es5.noModule = true; 
       script_main_es5.defer = true; 
       document.body.appendChild(script_main_es5);
