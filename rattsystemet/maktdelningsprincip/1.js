@@ -6,15 +6,15 @@ window.local_zaccordion_0_data = [
  trigger: "1"
 },
 {
- image: "maktdeliningsprincip_htm_files/31.jpg"
+ image: "https://fdu.multireligionvalsystem.eu.org/rattsystemet/maktdelningsprincip/31.jpg"
 },
 {
- image: "maktdeliningsprincip_htm_files/32.jpg"
+ image: "https://fdu.multireligionvalsystem.eu.org/rattsystemet/maktdelningsprincip/32.jpg"
 },
 {
- image: "maktdeliningsprincip_htm_files/33.jpg"
+ image: "https://fdu.multireligionvalsystem.eu.org/rattsystemet/maktdelningsprincip/33.jpg"
 },
 {
- image: "maktdeliningsprincip_htm_files/34.jpg"
+ image: "https://fdu.multireligionvalsystem.eu.org/rattsystemet/maktdelningsprincip/34.jpg"
 }
 ];
