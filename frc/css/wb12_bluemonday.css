@@ -185,7 +185,7 @@ a:hover
 #home
 {
    background-color: transparent;
-   background-image: url('../images/table1_800_faded.jpg');
+   background-image: url('https://fdu.multireligionvalsystem.eu.org/frc/images/table1_800_faded.jpg');
    background-repeat: no-repeat;
    background-position: center center;
    background-attachment: scroll;
