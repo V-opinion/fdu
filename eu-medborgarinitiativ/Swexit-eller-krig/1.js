@@ -6,15 +6,15 @@ window.local_zaccordion_0_data = [
  trigger: "1"
 },
 {
- image: "Swexit-eller-krig_htm_files/166.jpg"
+ image: "https://fdu.multireligionvalsystem.eu.org/eu-medborgarinitiativ/Swexit-eller-krig/166.jpg"
 },
 {
- image: "Swexit-eller-krig_htm_files/167.jpg"
+ image: "https://fdu.multireligionvalsystem.eu.org/eu-medborgarinitiativ/Swexit-eller-krig/167.jpg"
 },
 {
- image: "Swexit-eller-krig_htm_files/168.jpg"
+ image: "https://fdu.multireligionvalsystem.eu.org/eu-medborgarinitiativ/Swexit-eller-krig/168.jpg"
 },
 {
- image: "Swexit-eller-krig_htm_files/169.jpg"
+ image: "https://fdu.multireligionvalsystem.eu.org/eu-medborgarinitiativ/Swexit-eller-krig/169.jpg"
 }
 ];
