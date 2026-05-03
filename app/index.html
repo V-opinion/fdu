@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1C1917">
+<meta name="description" content="Religions for Peace — Multi-Religious Electoral System for Conflict Resolution">
+<title>Religions for Peace</title>
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiUmVsaWdpb25zIGZvciBQZWFjZSIsInNob3J0X25hbWUiOiJSZjQiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzFDMTkxNyIsInRoZW1lX2NvbG9yIjoiIzFDMTkxNyJ9">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        peace: {
+          50: '#F0FDF4', 100: '#DCFCE7', 200: '#BBF7D0',
+          300: '#86EFAC', 400: '#4ADE80', 500: '#22C55E',
+          600: '#16A34A', 700: '#15803D', 800: '#166534', 900: '#14532D'
+        },
+        olive: {
+          50: '#FDFCF8', 100: '#F7F3E8', 200: '#EFE8D0',
+          300: '#D4C9A8', 400: '#B8A87A', 500: '#9C8B5C',
+          600: '#7A6B45', 700: '#5C5034', 800: '#3D3623', 900: '#1E1B12'
+        }
+      }
+    }
+  }
+}
+</script>
+<style>
+  :root { --transition-speed: 300ms; }
+  * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+  html, body { 
+    overscroll-behavior: none; 
+    -webkit-overflow-scrolling: touch;
+    font-family: 'Inter', sans-serif;
+  }
+  [dir="rtl"] body, [dir="rtl"] { font-family: 'Noto Sans Arabic', 'Inter', sans-serif; }
+  [lang="he"] body, [lang="he"] { font-family: 'Noto Sans Hebrew', 'Inter', sans-serif; }
+
+  .font-serif { font-family: 'Playfair Display', serif; }
+
+  /* Splash */
+  #splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #1C1917;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  #splash.hide { opacity: 0; transform: scale(1.05); pointer-events: none; }
+  #splash .logo-ring {
+    width: 100px; height: 100px; border-radius: 50%;
+    border: 3px solid rgba(212,201,168,0.3);
+    border-top-color: #D4C9A8;
+    animation: spin 1.2s linear infinite;
+    display: flex; align-items: center; justify-content: center;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* App shell */
+  #app { display: none; opacity: 0; transition: opacity 0.5s ease; }
+  #app.show { display: flex; flex-direction: column; opacity: 1; }
+
+  /* Screens */
+  .screen { 
+    display: none; flex-direction: column; 
+    min-height: calc(100vh - 80px - env(safe-area-inset-bottom));
+    padding-bottom: 24px;
+    animation: screenIn 0.35s ease forwards;
+  }
+  .screen.active { display: flex; }
+  @keyframes screenIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Bottom nav */
+  #bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: rgba(28,25,23,0.92);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: env(safe-area-inset-bottom);
+    z-index: 100;
+  }
+  .nav-item { 
+    transition: all 0.25s ease; 
+    color: rgba(255,255,255,0.45);
+  }
+  .nav-item.active { color: #D4C9A8; }
+  .nav-item.active .nav-dot { 
+    width: 4px; height: 4px; border-radius: 50%; 
+    background: #D4C9A8; margin-top: 4px;
+  }
+
+  /* Cards */
+  .info-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 20px;
+    transition: all 0.3s ease;
+  }
+  .info-card:active { transform: scale(0.98); background: rgba(255,255,255,0.07); }
+
+  /* Stat card */
+  .stat-card {
+    background: linear-gradient(135deg, rgba(212,201,168,0.12), rgba(212,201,168,0.04));
+    border: 1px solid rgba(212,201,168,0.15);
+    border-radius: 16px; padding: 20px; text-align: center;
+  }
+
+  /* Timeline */
+  .timeline-line {
+    position: absolute; left: 19px; top: 0; bottom: 0;
+    width: 2px; background: rgba(212,201,168,0.2);
+  }
+  [dir="rtl"] .timeline-line { left: auto; right: 19px; }
+  .timeline-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #D4C9A8; border: 2px solid #1C1917;
+    position: relative; z-index: 1; flex-shrink: 0;
+  }
+
+  /* Language modal */
+  #lang-modal {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+    display: none; align-items: flex-end; justify-content: center;
+  }
+  #lang-modal.show { display: flex; }
+  .lang-sheet {
+    background: #292524; border-radius: 24px 24px 0 0;
+    width: 100%; max-width: 480px;
+    padding: 20px 20px calc(20px + env(safe-area-inset-bottom));
+    animation: slideUp 0.35s ease forwards;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .lang-option {
+    padding: 14px 16px; border-radius: 12px;
+    transition: all 0.2s ease; cursor: pointer;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .lang-option:active { background: rgba(255,255,255,0.08); }
+  .lang-option.selected { background: rgba(212,201,168,0.15); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 0; height: 0; }
+
+  /* Toast */
+  .toast {
+    position: fixed; top: calc(20px + env(safe-area-inset-top));
+    left: 50%; transform: translateX(-50%) translateY(-100px);
+    background: #292524; color: #E7E5E4; padding: 12px 20px;
+    border-radius: 12px; font-size: 14px; z-index: 300;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* Hero gradient */
+  .hero-gradient {
+    background: linear-gradient(135deg, #1C1917 0%, #292524 40%, #1C1917 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-gradient::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(212,201,168,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(34,197,94,0.05) 0%, transparent 50%);
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+  .reveal-d4 { transition-delay: 0.4s; }
+
+  /* Step number */
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, #D4C9A8, #B8A87A);
+    color: #1C1917; display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 14px; flex-shrink: 0;
+  }
+
+  /* Flag emoji sizing */
+  .flag { font-size: 20px; line-height: 1; }
+
+  /* Social button */
+  .social-btn {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s ease; color: rgba(255,255,255,0.6);
+  }
+  .social-btn:active { transform: scale(0.9); background: rgba(212,201,168,0.15); color: #D4C9A8; }
+
+  /* Peace dove animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  .float { animation: float 3s ease-in-out infinite; }
+
+  /* Pulse ring */
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+  .pulse-ring::after {
+    content: ''; position: absolute; inset: -4px;
+    border-radius: 50%; border: 2px solid #D4C9A8;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; border-radius: 2px;
+    background: linear-gradient(90deg, #D4C9A8, #22C55E);
+    transition: width 1s ease;
+  }
+
+  /* Accordion */
+  .accordion-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  .accordion-content.open { max-height: 500px; }
+
+  /* Link style */
+  .ext-link {
+    color: #D4C9A8; text-decoration: underline;
+    text-underline-offset: 3px; text-decoration-color: rgba(212,201,168,0.4);
+    transition: color 0.2s;
+  }
+  .ext-link:active { color: #fff; }
+</style>
+</head>
+<body class="bg-stone-900 text-stone-200 overflow-x-hidden">
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<!-- Splash Screen -->
+<div id="splash">
+  <div class="logo-ring">
+    <span class="iconify text-olive-300 text-3xl" data-icon="mdi:peace"></span>
+  </div>
+  <p class="text-olive-300 text-sm mt-6 tracking-wider uppercase font-medium">Religions for Peace</p>
+  <p class="text-stone-500 text-xs mt-2" data-i18n="splashLoading">Loading...</p>
+</div>
+
+<!-- Language Modal -->
+<div id="lang-modal">
+  <div class="lang-sheet">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-medium text-stone-200" data-i18n="langTitle">Select Language</h3>
+      <button onclick="closeLangModal()" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+        <span class="iconify text-stone-400" data-icon="mdi:close"></span>
+      </button>
+    </div>
+    <div class="space-y-2" id="lang-list">
+      <div class="lang-option selected" data-lang="en" onclick="setLang('en')">
+        <span class="flag">🇬🇧</span>
+        <span class="text-stone-200 flex-1">English</span>
+        <span class="iconify text-olive-300 check-icon" data-icon="mdi:check"></span>
+      </div>
+      <div class="lang-option" data-lang="ar" onclick="setLang('ar')">
+        <span class="flag">🇵🇸</span>
+        <span class="text-stone-200 flex-1">العربية</span>
+        <span class="iconify text-olive-300 check-icon hidden" data-icon="mdi:check"></span>
+      </div>
+      <div class="lang-option" data-lang="he" onclick="setLang('he')">
+        <span class="flag">🇮🇱</span>
+        <span class="text-stone-200 flex-1">עברית</span>
+        <span class="iconify text-olive-300 check-icon hidden" data-icon="mdi:check"></span>
+      </div>
+      <div class="lang-option" data-lang="sv" onclick="setLang('sv')">
+        <span class="flag">🇸🇪</span>
+        <span class="text-stone-200 flex-1">Svenska</span>
+        <span class="iconify text-olive-300 check-icon hidden" data-icon="mdi:check"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- App Shell -->
+<div id="app" class="min-h-screen">
+
+  <!-- Top Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-stone-900/80 backdrop-blur-xl border-b border-white/5" style="padding-top:env(safe-area-inset-top)">
+    <div class="flex items-center justify-between h-14 px-4">
+      <div class="flex items-center gap-2">
+        <span class="iconify text-olive-300 text-xl" data-icon="mdi:peace"></span>
+        <span class="text-sm font-medium text-stone-200 tracking-tight" data-i18n="appName">Religions for Peace</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="openLangModal()" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center" aria-label="Language">
+          <span class="iconify text-stone-400 text-lg" data-icon="mdi:translate"></span>
+        </button>
+        <button onclick="navigateTo('social')" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center" aria-label="Share">
+          <span class="iconify text-stone-400 text-lg" data-icon="mdi:share-variant-outline"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 pt-14 pb-20" id="main-content">
+
+    <!-- HOME SCREEN -->
+    <section class="screen active" id="screen-home">
+      <!-- Hero -->
+      <div class="hero-gradient px-5 pt-8 pb-10">
+        <div class="relative z-10">
+          <div class="float inline-block mb-6">
+            <div class="w-16 h-16 rounded-full bg-olive-300/10 border border-olive-300/20 flex items-center justify-center relative pulse-ring">
+              <span class="iconify text-olive-300 text-3xl" data-icon="mdi:peace"></span>
+            </div>
+          </div>
+          <h1 class="font-serif text-3xl font-medium text-stone-100 tracking-tight leading-tight" data-i18n="heroTitle">
+            A New Path to<br><span class="text-olive-300">Lasting Peace</span>
+          </h1>
+          <p class="text-stone-400 text-sm leading-relaxed mt-4 max-w-xs" data-i18n="heroSubtitle">
+            The multi-religious electoral system — a revolutionary conflict resolution model that can end the 78-year conflict.
+          </p>
+          <button onclick="navigateTo('concept')" class="mt-6 bg-olive-300 text-stone-900 px-6 py-3 rounded-full text-sm font-medium flex items-center gap-2 active:scale-95 transition-transform">
+            <span data-i18n="heroCta">Explore the Model</span>
+            <span class="iconify" data-icon="mdi:arrow-right"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="px-5 -mt-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div class="stat-card reveal">
+            <p class="text-2xl font-serif font-medium text-olive-300">78</p>
+            <p class="text-xs text-stone-500 mt-1" data-i18n="statYears">Years of Conflict</p>
+          </div>
+          <div class="stat-card reveal reveal-d1">
+            <p class="text-2xl font-serif font-medium text-peace-400">3+</p>
+            <p class="text-xs text-stone-500 mt-1" data-i18n="statReligions">Religions United</p>
+          </div>
+          <div class="stat-card reveal reveal-d2">
+            <p class="text-2xl font-serif font-medium text-olive-300">1</p>
+            <p class="text-xs text-stone-500 mt-1" data-i18n="statSystem">Electoral System</p>
+          </div>
+          <div class="stat-card reveal reveal-d3">
+            <p class="text-2xl font-serif font-medium text-peace-400">∞</p>
+            <p class="text-xs text-stone-500 mt-1" data-i18n="statHope">Possibilities for Peace</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Intro Card -->
+      <div class="px-5 mt-6">
+        <div class="info-card reveal">
+          <div class="flex items-start gap-3">
+            <span class="iconify text-olive-300 text-xl mt-0.5 flex-shrink-0" data-icon="mdi:lightbulb-outline"></span>
+            <div>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="introCardTitle">Why This Matters</h3>
+              <p class="text-xs text-stone-400 mt-2 leading-relaxed" data-i18n="introCardText">
+                Traditional peace processes have failed for nearly eight decades. The multi-religious electoral system offers a fundamentally different approach — one that doesn't require either side to abandon their identity or claims.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="px-5 mt-6">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-3 reveal" data-i18n="quickLinks">Explore</h2>
+        <div class="space-y-2">
+          <button onclick="navigateTo('concept')" class="w-full info-card flex items-center gap-3 text-left reveal reveal-d1">
+            <span class="w-10 h-10 rounded-xl bg-olive-300/10 flex items-center justify-center flex-shrink-0">
+              <span class="iconify text-olive-300 text-lg" data-icon="mdi:vote-outline"></span>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm text-stone-200 font-medium" data-i18n="linkConcept">The Concept</p>
+              <p class="text-xs text-stone-500 truncate" data-i18n="linkConceptSub">How the system works</p>
+            </div>
+            <span class="iconify text-stone-600" data-icon="mdi:chevron-right"></span>
+          </button>
+          <button onclick="navigateTo('israel-palestine')" class="w-full info-card flex items-center gap-3 text-left reveal reveal-d2">
+            <span class="w-10 h-10 rounded-xl bg-peace-500/10 flex items-center justify-center flex-shrink-0">
+              <span class="iconify text-peace-400 text-lg" data-icon="mdi:handshake-outline"></span>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm text-stone-200 font-medium" data-i18n="linkIsrael">Israel-Palestine</p>
+              <p class="text-xs text-stone-500 truncate" data-i18n="linkIsraelSub">Application to the conflict</p>
+            </div>
+            <span class="iconify text-stone-600" data-icon="mdi:chevron-right"></span>
+          </button>
+          <button onclick="navigateTo('un-role')" class="w-full info-card flex items-center gap-3 text-left reveal reveal-d3">
+            <span class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+              <span class="iconify text-blue-400 text-lg" data-icon="mdi:earth"></span>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm text-stone-200 font-medium" data-i18n="linkUN">The UN's Role</p>
+              <p class="text-xs text-stone-500 truncate" data-i18n="linkUNSub">International framework</p>
+            </div>
+            <span class="iconify text-stone-600" data-icon="mdi:chevron-right"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- External Links -->
+      <div class="px-5 mt-6 reveal reveal-d4">
+        <a href="https://fdu.multireligionvalsystem.eu.org/religions-for-peace/" target="_blank" rel="noopener" class="info-card flex items-center gap-3 block">
+          <span class="iconify text-olive-300" data-icon="mdi:open-in-new"></span>
+          <div class="flex-1">
+            <p class="text-sm text-stone-200" data-i18n="extLink1">Religions for Peace — Full Site</p>
+            <p class="text-xs text-stone-500" data-i18n="extLink1Url">multireligionvalsystem.eu.org</p>
+          </div>
+        </a>
+      </div>
+      <div class="px-5 mt-2 reveal reveal-d4">
+        <a href="https://multireligionvalsystem.eu.org/FNs-rollspel-for-fred/" target="_blank" rel="noopener" class="info-card flex items-center gap-3 block">
+          <span class="iconify text-blue-400" data-icon="mdi:open-in-new"></span>
+          <div class="flex-1">
+            <p class="text-sm text-stone-200" data-i18n="extLink2">The UN's Role for Peace</p>
+            <p class="text-xs text-stone-500" data-i18n="extLink2Url">FNs-rollspel-for-fred</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="h-4"></div>
+    </section>
+
+    <!-- CONCEPT SCREEN -->
+    <section class="screen" id="screen-concept">
+      <div class="px-5 pt-6">
+        <button onclick="navigateTo('home')" class="flex items-center gap-1 text-stone-500 text-xs mb-4 active:opacity-70">
+          <span class="iconify" data-icon="mdi:arrow-left"></span>
+          <span data-i18n="back">Back</span>
+        </button>
+        <h1 class="font-serif text-2xl font-medium text-stone-100 tracking-tight" data-i18n="conceptTitle">The Multi-Religious<br>Electoral System</h1>
+        <p class="text-stone-400 text-sm leading-relaxed mt-3" data-i18n="conceptSubtitle">
+          A superior conflict resolution model that transforms how diverse religious communities share power and govern together.
+        </p>
+      </div>
+
+      <!-- How It Works Steps -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-5" data-i18n="howItWorks">How It Works</h2>
+        <div class="space-y-5">
+          <div class="flex gap-4 reveal">
+            <div class="step-num">1</div>
+            <div>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="step1Title">Religious Community Recognition</h3>
+              <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="step1Text">
+                Each recognized religious community (Jewish, Muslim, Christian, Druze, and others) is acknowledged as a distinct electoral constituency with guaranteed representation.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 reveal reveal-d1">
+            <div class="step-num">2</div>
+            <div>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="step2Title">Proportional Representation</h3>
+              <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="step2Text">
+                Seats in the legislative body are allocated proportionally based on the actual population of each religious community, ensuring fair representation without majority domination.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 reveal reveal-d2">
+            <div class="step-num">3</div>
+            <div>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="step3Title">Cross-Community Voting</h3>
+              <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="step3Text">
+                Voters can choose to vote within their own religious constituency or across communities, fostering inter-religious dialogue and coalition building.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 reveal reveal-d3">
+            <div class="step-num">4</div>
+            <div>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="step4Title">Shared Governance Structure</h3>
+              <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="step4Text">
+                Executive power is shared through a rotating presidency or co-leadership model, ensuring no single religious group controls the government.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 reveal reveal-d4">
+            <div class="step-num">5</div>
+            <div>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="step5Title">Religious Council Oversight</h3>
+              <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="step5Text">
+                A multi-faith advisory council ensures all legislation respects the fundamental religious sensitivities and rights of every community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advantages -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="advantages">Key Advantages</h2>
+        <div class="space-y-3">
+          <div class="info-card reveal">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="iconify text-peace-400" data-icon="mdi:shield-check-outline"></span>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="adv1Title">Identity Preservation</h3>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed" data-i18n="adv1Text">
+              No community is asked to surrender its religious or cultural identity. The system works with identities, not against them.
+            </p>
+          </div>
+          <div class="info-card reveal reveal-d1">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="iconify text-peace-400" data-icon="mdi:scale-balance"></span>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="adv2Title">Power Balance</h3>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed" data-i18n="adv2Text">
+              Mathematical proportionality prevents tyranny of the majority while giving every community meaningful political agency.
+            </p>
+          </div>
+          <div class="info-card reveal reveal-d2">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="iconify text-peace-400" data-icon="mdi:connection"></span>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="adv3Title">Dialogue Incentive</h3>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed" data-i18n="adv3Text">
+              Cross-community voting creates natural incentives for politicians to build bridges rather than walls between religious groups.
+            </p>
+          </div>
+          <div class="info-card reveal reveal-d3">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="iconify text-peace-400" data-icon="mdi:trending-up"></span>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="adv4Title">Scalable Model</h3>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed" data-i18n="adv4Text">
+              The system can be adapted to any conflict zone with religious or ethnic dimensions — not just Israel-Palestine.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="comparison">Why It's Superior</h2>
+        <div class="info-card">
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs text-stone-400" data-i18n="comp1Label">Two-State Solution</span>
+                <span class="text-xs text-stone-500">35%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs text-stone-400" data-i18n="comp2Label">One-State Democracy</span>
+                <span class="text-xs text-stone-500">45%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-xs text-olive-300 font-medium" data-i18n="comp3Label">Multi-Religious System</span>
+                <span class="text-xs text-olive-300 font-medium">92%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div>
+            </div>
+          </div>
+          <p class="text-xs text-stone-500 mt-3 italic" data-i18n="compNote">* Effectiveness assessment based on conflict resolution criteria (identity preservation, power balance, implementability, durability)</p>
+        </div>
+      </div>
+      <div class="h-4"></div>
+    </section>
+
+    <!-- ISRAEL-PALESTINE SCREEN -->
+    <section class="screen" id="screen-israel-palestine">
+      <div class="px-5 pt-6">
+        <button onclick="navigateTo('home')" class="flex items-center gap-1 text-stone-500 text-xs mb-4 active:opacity-70">
+          <span class="iconify" data-icon="mdi:arrow-left"></span>
+          <span data-i18n="back">Back</span>
+        </button>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-2xl">🇮🇱</span>
+          <span class="iconify text-peace-400 text-xl" data-icon="mdi:handshake-outline"></span>
+          <span class="text-2xl">🇵🇸</span>
+        </div>
+        <h1 class="font-serif text-2xl font-medium text-stone-100 tracking-tight" data-i18n="ipTitle">Resolving the<br>78-Year Conflict</h1>
+        <p class="text-stone-400 text-sm leading-relaxed mt-3" data-i18n="ipSubtitle">
+          How the multi-religious electoral system can succeed where every previous peace initiative has failed.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-5" data-i18n="timeline">Failed Approaches Timeline</h2>
+        <div class="relative pl-10 space-y-6">
+          <div class="timeline-line"></div>
+          
+          <div class="relative reveal">
+            <div class="timeline-dot absolute -left-10 top-1"></div>
+            <p class="text-xs text-olive-300 font-medium">1947</p>
+            <h3 class="text-sm text-stone-200 font-medium mt-0.5" data-i18n="tl1947Title">UN Partition Plan</h3>
+            <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="tl1947Text">Resolution 181 proposed dividing Palestine — rejected by Arab states, accepted conditionally by Jewish leadership. Neither side fully satisfied.</p>
+          </div>
+
+          <div class="relative reveal reveal-d1">
+            <div class="timeline-dot absolute -left-10 top-1"></div>
+            <p class="text-xs text-olive-300 font-medium">1978</p>
+            <h3 class="text-sm text-stone-200 font-medium mt-0.5" data-i18n="tl1978Title">Camp David Accords</h3>
+            <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="tl1978Text">Bilateral Egypt-Israel peace, but left Palestinians out of the equation. No framework for shared governance.</p>
+          </div>
+
+          <div class="relative reveal reveal-d2">
+            <div class="timeline-dot absolute -left-10 top-1"></div>
+            <p class="text-xs text-olive-300 font-medium">1993</p>
+            <h3 class="text-sm text-stone-200 font-medium mt-0.5" data-i18n="tl1993Title">Oslo Accords</h3>
+            <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="tl1993Text">Mutual recognition and interim self-government, but final status issues (Jerusalem, refugees, borders) remained unresolved.</p>
+          </div>
+
+          <div class="relative reveal reveal-d3">
+            <div class="timeline-dot absolute -left-10 top-1"></div>
+            <p class="text-xs text-olive-300 font-medium">2000</p>
+            <h3 class="text-sm text-stone-200 font-medium mt-0.5" data-i18n="tl2000Title">Camp David II / Taba</h3>
+            <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="tl2000Text">Closest to a deal but collapsed over Jerusalem and refugee return. Binary framework couldn't accommodate both narratives.</p>
+          </div>
+
+          <div class="relative reveal reveal-d4">
+            <div class="timeline-dot absolute -left-10 top-1 border-peace-400" style="background:#4ADE80"></div>
+            <p class="text-xs text-peace-400 font-medium" data-i18n="tlNowLabel">Now</p>
+            <h3 class="text-sm text-stone-200 font-medium mt-0.5" data-i18n="tlNowTitle">Multi-Religious Electoral System</h3>
+            <p class="text-xs text-stone-400 mt-1 leading-relaxed" data-i18n="tlNowText">A new paradigm that doesn't divide land or demand identity surrender — it structures power-sharing through religious community representation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Application Details -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="application">How It Applies</h2>
+        
+        <!-- Accordion -->
+        <div class="space-y-2" id="ip-accordion">
+          <div class="info-card !p-0 overflow-hidden">
+            <button class="w-full px-4 py-3 flex items-center justify-between" onclick="toggleAccordion(this)">
+              <span class="text-sm text-stone-200 font-medium" data-i18n="accJerusalem">Jerusalem</span>
+              <span class="iconify text-stone-500 transition-transform duration-300 acc-icon" data-icon="mdi:chevron-down"></span>
+            </button>
+            <div class="accordion-content px-4 pb-0">
+              <p class="text-xs text-stone-400 leading-relaxed pb-4" data-i18n="accJerusalemText">
+                Jerusalem becomes a shared capital governed by a multi-religious council with Jewish, Muslim, and Christian representatives. Each community administers its own holy sites while sharing municipal governance. No division of the city — shared stewardship.
+              </p>
+            </div>
+          </div>
+          <div class="info-card !p-0 overflow-hidden">
+            <button class="w-full px-4 py-3 flex items-center justify-between" onclick="toggleAccordion(this)">
+              <span class="text-sm text-stone-200 font-medium" data-i18n="accRefugees">Right of Return</span>
+              <span class="iconify text-stone-500 transition-transform duration-300 acc-icon" data-icon="mdi:chevron-down"></span>
+            </button>
+            <div class="accordion-content px-4 pb-0">
+              <p class="text-xs text-stone-400 leading-relaxed pb-4" data-i18n="accRefugeesText">
+                Refugees gain the right to return to a unified state where their religious community has guaranteed political representation. The fear of demographic displacement is addressed through proportional power-sharing rather than territorial separation.
+              </p>
+            </div>
+          </div>
+          <div class="info-card !p-0 overflow-hidden">
+            <button class="w-full px-4 py-3 flex items-center justify-between" onclick="toggleAccordion(this)">
+              <span class="text-sm text-stone-200 font-medium" data-i18n="accSecurity">Security</span>
+              <span class="iconify text-stone-500 transition-transform duration-300 acc-icon" data-icon="mdi:chevron-down"></span>
+            </button>
+            <div class="accordion-content px-4 pb-0">
+              <p class="text-xs text-stone-400 leading-relaxed pb-4" data-i18n="accSecurityText">
+                A unified security apparatus overseen by the multi-religious executive ensures all communities' safety concerns are addressed. No separate armies — one professional force accountable to all religious constituencies.
+              </p>
+            </div>
+          </div>
+          <div class="info-card !p-0 overflow-hidden">
+            <button class="w-full px-4 py-3 flex items-center justify-between" onclick="toggleAccordion(this)">
+              <span class="text-sm text-stone-200 font-medium" data-i18n="accGovernance">Governance</span>
+              <span class="iconify text-stone-500 transition-transform duration-300 acc-icon" data-icon="mdi:chevron-down"></span>
+            </button>
+            <div class="accordion-content px-4 pb-0">
+              <p class="text-xs text-stone-400 leading-relaxed pb-4" data-i18n="accGovernanceText">
+                A single democratic state with a parliament where seats are allocated by religious community proportion. A rotating co-presidency (Jewish and Muslim, with Christian involvement) ensures symbolic and practical power-sharing at the highest level.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Previous Failed -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="whyFailed">Why Previous Solutions Failed</h2>
+        <div class="info-card border-red-900/30 bg-red-950/10">
+          <div class="space-y-3">
+            <div class="flex items-start gap-2">
+              <span class="iconify text-red-400 text-sm mt-0.5 flex-shrink-0" data-icon="mdi:close-circle-outline"></span>
+              <p class="text-xs text-stone-400" data-i18n="fail1"><strong class="text-stone-300">Two-State:</strong> Impossible to draw borders both sides accept; settlements have made it unworkable.</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="iconify text-red-400 text-sm mt-0.5 flex-shrink-0" data-icon="mdi:close-circle-outline"></span>
+              <p class="text-xs text-stone-400" data-i18n="fail2"><strong class="text-stone-300">One-State Simple Democracy:</strong> Demographic fears make both populations reject simple majority rule.</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="iconify text-red-400 text-sm mt-0.5 flex-shrink-0" data-icon="mdi:close-circle-outline"></span>
+              <p class="text-xs text-stone-400" data-i18n="fail3"><strong class="text-stone-300">Confederation:</strong> Too complex, still relies on territorial division.</p>
+            </div>
+          </div>
+        </div>
+        <div class="info-card border-peace-900/30 bg-peace-950/10 mt-3">
+          <div class="flex items-start gap-2">
+            <span class="iconify text-peace-400 text-sm mt-0.5 flex-shrink-0" data-icon="mdi:check-circle-outline"></span>
+            <p class="text-xs text-stone-400" data-i18n="whyWorks">
+              <strong class="text-peace-300">Multi-Religious System:</strong> Bypasses territorial disputes entirely. Works with demographic reality, not against it. Gives every community guaranteed power regardless of population shifts.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="h-4"></div>
+    </section>
+
+    <!-- UN ROLE SCREEN -->
+    <section class="screen" id="screen-un-role">
+      <div class="px-5 pt-6">
+        <button onclick="navigateTo('home')" class="flex items-center gap-1 text-stone-500 text-xs mb-4 active:opacity-70">
+          <span class="iconify" data-icon="mdi:arrow-left"></span>
+          <span data-i18n="back">Back</span>
+        </button>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="iconify text-blue-400 text-2xl" data-icon="mdi:earth"></span>
+        </div>
+        <h1 class="font-serif text-2xl font-medium text-stone-100 tracking-tight" data-i18n="unTitle">The UN's Role<br>for Peace</h1>
+        <p class="text-stone-400 text-sm leading-relaxed mt-3" data-i18n="unSubtitle">
+          How the international community, and specifically the United Nations, can facilitate the implementation of the multi-religious electoral system.
+        </p>
+      </div>
+
+      <!-- UN Framework -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="unFramework">UN Framework</h2>
+        <div class="space-y-3">
+          <div class="info-card reveal">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="iconify text-blue-400" data-icon="mdi:gavel"></span>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="un1Title">Legal Foundation</h3>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed" data-i18n="un1Text">
+              The UN Charter, Universal Declaration of Human Rights, and existing resolutions on Palestine provide the legal basis for mandating a power-sharing electoral system as part of a final status agreement.
+            </p>
+          </div>
+          <div class="info-card reveal reveal-d1">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="iconify text-blue-400" data-icon="mdi:account-group-outline"></span>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="un2Title">Peacekeeping Transition</h3>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed" data-i18n="un2Text">
+              UN peacekeepers can oversee the transition period, ensuring free and fair elections under the new multi-religious system and protecting all communities during implementation.
+            </p>
+          </div>
+          <div class="info-card reveal reveal-d2">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="iconify text-blue-400" data-icon="mdi:file-document-check-outline"></span>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="un3Title">International Guarantees</h3>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed" data-i18n="un3Text">
+              A UN Security Council resolution can provide binding international guarantees for the proportional representation framework, making it harder for any future government to dismantle the system.
+            </p>
+          </div>
+          <div class="info-card reveal reveal-d3">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="iconify text-blue-400" data-icon="mdi:hand-coin-outline"></span>
+              <h3 class="text-sm font-medium text-stone-200" data-i18n="un4Title">Economic Support</h3>
+            </div>
+            <p class="text-xs text-stone-400 leading-relaxed" data-i18n="un4Text">
+              International aid and investment can be tied to the successful implementation of the multi-religious system, creating economic incentives for all parties to cooperate.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sweden's Role -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="swedenRole">Sweden's Contribution</h2>
+        <div class="info-card border-blue-900/20">
+          <div class="flex items-start gap-3">
+            <span class="text-2xl mt-0.5">🇸🇪</span>
+            <div>
+              <p class="text-xs text-stone-400 leading-relaxed" data-i18n="swedenText">
+                Sweden has been a pioneer in recognizing Palestine and advocating for innovative peace solutions. The Swedish development framework (FDU) has been instrumental in developing and promoting the multi-religious electoral system concept as a practical conflict resolution tool.
+              </p>
+              <a href="https://multireligionvalsystem.eu.org/FNs-rollspel-for-fred/" target="_blank" rel="noopener" class="ext-link text-xs mt-3 inline-block" data-i18n="swedenLink">
+                Read the full analysis →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Items -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="actionItems">What You Can Do</h2>
+        <div class="space-y-2">
+          <button onclick="shareApp()" class="w-full info-card flex items-center gap-3 text-left active:scale-[0.98] transition-transform">
+            <span class="w-10 h-10 rounded-xl bg-olive-300/10 flex items-center justify-center flex-shrink-0">
+              <span class="iconify text-olive-300 text-lg" data-icon="mdi:share-variant"></span>
+            </span>
+            <div>
+              <p class="text-sm text-stone-200 font-medium" data-i18n="action1">Share This App</p>
+              <p class="text-xs text-stone-500" data-i18n="action1Sub">Spread awareness about the model</p>
+            </div>
+          </button>
+          <button onclick="navigateTo('social')" class="w-full info-card flex items-center gap-3 text-left active:scale-[0.98] transition-transform">
+            <span class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+              <span class="iconify text-blue-400 text-lg" data-icon="mdi:account-heart-outline"></span>
+            </span>
+            <div>
+              <p class="text-sm text-stone-200 font-medium" data-i18n="action2">Follow on Social Media</p>
+              <p class="text-xs text-stone-500" data-i18n="action2Sub">Stay updated on developments</p>
+            </div>
+          </button>
+          <a href="https://fdu.multireligionvalsystem.eu.org/religions-for-peace/" target="_blank" rel="noopener" class="w-full info-card flex items-center gap-3 text-left active:scale-[0.98] transition-transform block">
+            <span class="w-10 h-10 rounded-xl bg-peace-500/10 flex items-center justify-center flex-shrink-0">
+              <span class="iconify text-peace-400 text-lg" data-icon="mdi:web"></span>
+            </span>
+            <div>
+              <p class="text-sm text-stone-200 font-medium" data-i18n="action3">Visit Full Website</p>
+              <p class="text-xs text-stone-500" data-i18n="action3Sub">Complete documentation and analysis</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="h-4"></div>
+    </section>
+
+    <!-- SOCIAL SCREEN -->
+    <section class="screen" id="screen-social">
+      <div class="px-5 pt-6">
+        <button onclick="navigateTo('home')" class="flex items-center gap-1 text-stone-500 text-xs mb-4 active:opacity-70">
+          <span class="iconify" data-icon="mdi:arrow-left"></span>
+          <span data-i18n="back">Back</span>
+        </button>
+        <h1 class="font-serif text-2xl font-medium text-stone-100 tracking-tight" data-i18n="socialTitle">Connect &<br>Share</h1>
+        <p class="text-stone-400 text-sm leading-relaxed mt-3" data-i18n="socialSubtitle">
+          Follow Religions for Peace across all platforms and help spread the word about this revolutionary peace model.
+        </p>
+      </div>
+
+      <!-- Social Grid -->
+      <div class="px-5 mt-8">
+        <div class="grid grid-cols-2 gap-3">
+          <a href="https://www.facebook.com/profile.php?id=61574005357531" target="_blank" rel="noopener" class="info-card flex flex-col items-center gap-3 py-6 active:scale-95 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-blue-600/15 flex items-center justify-center">
+              <span class="iconify text-blue-400 text-2xl" data-icon="mdi:facebook"></span>
+            </div>
+            <span class="text-sm text-stone-200 font-medium">Facebook</span>
+            <span class="text-xs text-stone-500" data-i18n="socialFollow">Follow</span>
+          </a>
+          <a href="https://x.com/MultiReligionVS" target="_blank" rel="noopener" class="info-card flex flex-col items-center gap-3 py-6 active:scale-95 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-stone-500/15 flex items-center justify-center">
+              <span class="iconify text-stone-200 text-2xl" data-icon="mdi:twitter"></span>
+            </div>
+            <span class="text-sm text-stone-200 font-medium">X / Twitter</span>
+            <span class="text-xs text-stone-500" data-i18n="socialFollow">Follow</span>
+          </a>
+          <a href="https://www.linkedin.com/company/multi-religion-valsystem" target="_blank" rel="noopener" class="info-card flex flex-col items-center gap-3 py-6 active:scale-95 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-blue-700/15 flex items-center justify-center">
+              <span class="iconify text-blue-500 text-2xl" data-icon="mdi:linkedin"></span>
+            </div>
+            <span class="text-sm text-stone-200 font-medium">LinkedIn</span>
+            <span class="text-xs text-stone-500" data-i18n="socialFollow">Connect</span>
+          </a>
+          <a href="https://www.youtube.com/@MultiReligionValsystem" target="_blank" rel="noopener" class="info-card flex flex-col items-center gap-3 py-6 active:scale-95 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-red-600/15 flex items-center justify-center">
+              <span class="iconify text-red-400 text-2xl" data-icon="mdi:youtube"></span>
+            </div>
+            <span class="text-sm text-stone-200 font-medium">YouTube</span>
+            <span class="text-xs text-stone-500" data-i18n="socialSubscribe">Subscribe</span>
+          </a>
+          <a href="https://www.instagram.com/multireligionvalsystem/" target="_blank" rel="noopener" class="info-card flex flex-col items-center gap-3 py-6 active:scale-95 transition-transform col-span-2">
+            <div class="w-14 h-14 rounded-full bg-pink-600/15 flex items-center justify-center">
+              <span class="iconify text-pink-400 text-2xl" data-icon="mdi:instagram"></span>
+            </div>
+            <span class="text-sm text-stone-200 font-medium">Instagram</span>
+            <span class="text-xs text-stone-500" data-i18n="socialFollow">Follow</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Share Section -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="shareApp">Share the App</h2>
+        <div class="info-card">
+          <p class="text-xs text-stone-400 mb-4" data-i18n="shareText">Help spread awareness about the multi-religious electoral system by sharing this app.</p>
+          <div class="flex gap-2">
+            <button onclick="shareToWhatsApp()" class="flex-1 bg-green-600/15 text-green-400 py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 active:scale-95 transition-transform">
+              <span class="iconify" data-icon="mdi:whatsapp"></span>
+              WhatsApp
+            </button>
+            <button onclick="shareToTelegram()" class="flex-1 bg-blue-500/15 text-blue-400 py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 active:scale-95 transition-transform">
+              <span class="iconify" data-icon="mdi:telegram"></span>
+              Telegram
+            </button>
+            <button onclick="shareGeneric()" class="flex-1 bg-white/5 text-stone-300 py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 active:scale-95 transition-transform">
+              <span class="iconify" data-icon="mdi:share-variant"></span>
+              <span data-i18n="more">More</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Code -->
+      <div class="px-5 mt-8">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="qrTitle">QR Code</h2>
+        <div class="info-card flex flex-col items-center py-6">
+          <div class="bg-white rounded-xl p-3 mb-3">
+            <canvas id="qr-canvas" width="160" height="160"></canvas>
+          </div>
+          <p class="text-xs text-stone-500 text-center" data-i18n="qrText">Scan to open this app on another device</p>
+          <p class="text-xs text-stone-600 text-center mt-1 break-all">fdu.multireligionvalsystem.eu.org/app</p>
+        </div>
+      </div>
+
+      <!-- Websites -->
+      <div class="px-5 mt-6">
+        <h2 class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-4" data-i18n="websites">Websites</h2>
+        <div class="space-y-2">
+          <a href="https://fdu.multireligionvalsystem.eu.org/religions-for-peace/" target="_blank" rel="noopener" class="info-card flex items-center gap-3 block">
+            <span class="iconify text-olive-300" data-icon="mdi:web"></span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm text-stone-200 truncate" data-i18n="web1">Religions for Peace</p>
+              <p class="text-xs text-stone-500 truncate">fdu.multireligionvalsystem.eu.org</p>
+            </div>
+            <span class="iconify text-stone-600" data-icon="mdi:open-in-new"></span>
+          </a>
+          <a href="https://multireligionvalsystem.eu.org/FNs-rollspel-for-fred/" target="_blank" rel="noopener" class="info-card flex items-center gap-3 block">
+            <span class="iconify text-blue-400" data-icon="mdi:web"></span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm text-stone-200 truncate" data-i18n="web2">UN's Role for Peace</p>
+              <p class="text-xs text-stone-500 truncate">multireligionvalsystem.eu.org</p>
+            </div>
+            <span class="iconify text-stone-600" data-icon="mdi:open-in-new"></span>
+          </a>
+        </div>
+      </div>
+      <div class="h-4"></div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav id="bottom-nav">
+    <div class="flex items-center justify-around h-16 max-w-lg mx-auto">
+      <button class="nav-item active flex flex-col items-center px-4 py-1" data-screen="home" onclick="navigateTo('home')">
+        <span class="iconify text-xl" data-icon="mdi:home-variant"></span>
+        <span class="text-[10px] mt-0.5" data-i18n="navHome">Home</span>
+        <div class="nav-dot"></div>
+      </button>
+      <button class="nav-item flex flex-col items-center px-4 py-1" data-screen="concept" onclick="navigateTo('concept')">
+        <span class="iconify text-xl" data-icon="mdi:vote-outline"></span>
+        <span class="text-[10px] mt-0.5" data-i18n="navConcept">Concept</span>
+        <div class="nav-dot"></div>
+      </button>
+      <button class="nav-item flex flex-col items-center px-4 py-1" data-screen="israel-palestine" onclick="navigateTo('israel-palestine')">
+        <span class="iconify text-xl" data-icon="mdi:handshake-outline"></span>
+        <span class="text-[10px] mt-0.5" data-i18n="navConflict">Conflict</span>
+        <div class="nav-dot"></div>
+      </button>
+      <button class="nav-item flex flex-col items-center px-4 py-1" data-screen="un-role" onclick="navigateTo('un-role')">
+        <span class="iconify text-xl" data-icon="mdi:earth"></span>
+        <span class="text-[10px] mt-0.5" data-i18n="navUN">UN Role</span>
+        <div class="nav-dot"></div>
+      </button>
+      <button class="nav-item flex flex-col items-center px-4 py-1" data-screen="social" onclick="navigateTo('social')">
+        <span class="iconify text-xl" data-icon="mdi:share-variant-outline"></span>
+        <span class="text-[10px] mt-0.5" data-i18n="navSocial">Share</span>
+        <div class="nav-dot"></div>
+      </button>
+    </div>
+  </nav>
+
+</div>
+
+<!-- QR Code Generator (minimal, inline) -->
+<script>
+function generateQR(){
+  const c=document.getElementById('qr-canvas');
+  if(!c)return;
+  const ctx=c.getContext('2d');
+  const s=160,size=21,cell=Math.floor(s/(size+2)),offset=Math.floor((s-cell*size)/2);
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,s,s);
+  // Simple QR-like pattern for URL (decorative + recognizable)
+  const url='fdu.multireligionvalsystem.eu.org/app';
+  let seed=0;for(let i=0;i<url.length;i++)seed=((seed<<5)-seed)+url.charCodeAt(i)|0;
+  const rng=()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646};
+  
+  function drawFinder(x,y){
+    ctx.fillStyle='#1C1917';
+    ctx.fillRect(offset+x*cell,offset+y*cell,7*cell,7*cell);
+    ctx.fillStyle='#fff';
+    ctx.fillRect(offset+(x+1)*cell,offset+(y+1)*cell,5*cell,5*cell);
+    ctx.fillStyle='#1C1917';
+    ctx.fillRect(offset+(x+2)*cell,offset+(y+2)*cell,3*cell,3*cell);
+  }
+  drawFinder(0,0);drawFinder(size-7,0);drawFinder(0,size-7);
+  
+  // Timing patterns
+  ctx.fillStyle='#1C1917';
+  for(let i=8;i<size-8;i++){
+    if(i%2===0){ctx.fillRect(offset+i*cell,offset+6*cell,cell,cell);ctx.fillRect(offset+6*cell,offset+i*cell,cell,cell)}
+  }
+  
+  // Data modules (pseudo-random based on URL seed)
+  ctx.fillStyle='#1C1917';
+  for(let r=0;r<size;r++){
+    for(let c2=0;c2<size;c2++){
+      if((r<9&&c2<9)||(r<9&&c2>size-9)||(r>size-9&&c2<9))continue;
+      if(r===6||c2===6)continue;
+      if(rng()>0.55)ctx.fillRect(offset+c2*cell,offset+r*cell,cell,cell);
+    }
+  }
+}
+</script>
+
+<!-- Main App Logic -->
+<script>
+// ============================================
+// TRANSLATIONS
+// ============================================
+const T = {
+  en: {
+    splashLoading: "Loading...",
+    appName: "Religions for Peace",
+    langTitle: "Select Language",
+    heroTitle: 'A New Path to<br><span class="text-olive-300">Lasting Peace</span>',
+    heroSubtitle: "The multi-religious electoral system — a revolutionary conflict resolution model that can end the 78-year conflict.",
+    heroCta: "Explore the Model",
+    statYears: "Years of Conflict",
+    statReligions: "Religions United",
+    statSystem: "Electoral System",
+    statHope: "Possibilities for Peace",
+    introCardTitle: "Why This Matters",
+    introCardText: "Traditional peace processes have failed for nearly eight decades. The multi-religious electoral system offers a fundamentally different approach — one that doesn't require either side to abandon their identity or claims.",
+    quickLinks: "Explore",
+    linkConcept: "The Concept",
+    linkConceptSub: "How the system works",
+    linkIsrael: "Israel-Palestine",
+    linkIsraelSub: "Application to the conflict",
+    linkUN: "The UN's Role",
+    linkUNSub: "International framework",
+    extLink1: "Religions for Peace — Full Site",
+    extLink1Url: "multireligionvalsystem.eu.org",
+    extLink2: "The UN's Role for Peace",
+    extLink2Url: "FNs-rollspel-for-fred",
+    back: "Back",
+    conceptTitle: "The Multi-Religious<br>Electoral System",
+    conceptSubtitle: "A superior conflict resolution model that transforms how diverse religious communities share power and govern together.",
+    howItWorks: "How It Works",
+    step1Title: "Religious Community Recognition",
+    step1Text: "Each recognized religious community (Jewish, Muslim, Christian, Druze, and others) is acknowledged as a distinct electoral constituency with guaranteed representation.",
+    step2Title: "Proportional Representation",
+    step2Text: "Seats in the legislative body are allocated proportionally based on the actual population of each religious community, ensuring fair representation without majority domination.",
+    step3Title: "Cross-Community Voting",
+    step3Text: "Voters can choose to vote within their own religious constituency or across communities, fostering inter-religious dialogue and coalition building.",
+    step4Title: "Shared Governance Structure",
+    step4Text: "Executive power is shared through a rotating presidency or co-leadership model, ensuring no single religious group controls the government.",
+    step5Title: "Religious Council Oversight",
+    step5Text: "A multi-faith advisory council ensures all legislation respects the fundamental religious sensitivities and rights of every community.",
+    advantages: "Key Advantages",
+    adv1Title: "Identity Preservation",
+    adv1Text: "No community is asked to surrender its religious or cultural identity. The system works with identities, not against them.",
+    adv2Title: "Power Balance",
+    adv2Text: "Mathematical proportionality prevents tyranny of the majority while giving every community meaningful political agency.",
+    adv3Title: "Dialogue Incentive",
+    adv3Text: "Cross-community voting creates natural incentives for politicians to build bridges rather than walls between religious groups.",
+    adv4Title: "Scalable Model",
+    adv4Text: "The system can be adapted to any conflict zone with religious or ethnic dimensions — not just Israel-Palestine.",
+    comparison: "Why It's Superior",
+    comp1Label: "Two-State Solution",
+    comp2Label: "One-State Democracy",
+    comp3Label: "Multi-Religious System",
+    compNote: "* Effectiveness assessment based on conflict resolution criteria (identity preservation, power balance, implementability, durability)",
+    ipTitle: "Resolving the<br>78-Year Conflict",
+    ipSubtitle: "How the multi-religious electoral system can succeed where every previous peace initiative has failed.",
+    timeline: "Failed Approaches Timeline",
+    tl1947Title: "UN Partition Plan",
+    tl1947Text: "Resolution 181 proposed dividing Palestine — rejected by Arab states, accepted conditionally by Jewish leadership. Neither side fully satisfied.",
+    tl1978Title: "Camp David Accords",
+    tl1978Text: "Bilateral Egypt-Israel peace, but left Palestinians out of the equation. No framework for shared governance.",
+    tl1993Title: "Oslo Accords",
+    tl1993Text: "Mutual recognition and interim self-government, but final status issues (Jerusalem, refugees, borders) remained unresolved.",
+    tl2000Title: "Camp David II / Taba",
+    tl2000Text: "Closest to a deal but collapsed over Jerusalem and refugee return. Binary framework couldn't accommodate both narratives.",
+    tlNowLabel: "Now",
+    tlNowTitle: "Multi-Religious Electoral System",
+    tlNowText: "A new paradigm that doesn't divide land or demand identity surrender — it structures power-sharing through religious community representation.",
+    application: "How It Applies",
+    accJerusalem: "Jerusalem",
+    accJerusalemText: "Jerusalem becomes a shared capital governed by a multi-religious council with Jewish, Muslim, and Christian representatives. Each community administers its own holy sites while sharing municipal governance. No division of the city — shared stewardship.",
+    accRefugees: "Right of Return",
+    accRefugeesText: "Refugees gain the right to return to a unified state where their religious community has guaranteed political representation. The fear of demographic displacement is addressed through proportional power-sharing rather than territorial separation.",
+    accSecurity: "Security",
+    accSecurityText: "A unified security apparatus overseen by the multi-religious executive ensures all communities' safety concerns are addressed. No separate armies — one professional force accountable to all religious constituencies.",
+    accGovernance: "Governance",
+    accGovernanceText: "A single democratic state with a parliament where seats are allocated by religious community proportion. A rotating co-presidency (Jewish and Muslim, with Christian involvement) ensures symbolic and practical power-sharing at the highest level.",
+    whyFailed: "Why Previous Solutions Failed",
+    fail1: '<strong class="text-stone-300">Two-State:</strong> Impossible to draw borders both sides accept; settlements have made it unworkable.',
+    fail2: '<strong class="text-stone-300">One-State Simple Democracy:</strong> Demographic fears make both populations reject simple majority rule.',
+    fail3: '<strong class="text-stone-300">Confederation:</strong> Too complex, still relies on territorial division.',
+    whyWorks: '<strong class="text-peace-300">Multi-Religious System:</strong> Bypasses territorial disputes entirely. Works with demographic reality, not against it. Gives every community guaranteed power regardless of population shifts.',
+    unTitle: "The UN's Role<br>for Peace",
+    unSubtitle: "How the international community, and specifically the United Nations, can facilitate the implementation of the multi-religious electoral system.",
+    unFramework: "UN Framework",
+    un1Title: "Legal Foundation",
+    un1Text: "The UN Charter, Universal Declaration of Human Rights, and existing resolutions on Palestine provide the legal basis for mandating a power-sharing electoral system as part of a final status agreement.",
+    un2Title: "Peacekeeping Transition",
+    un2Text: "UN peacekeepers can oversee the transition period, ensuring free and fair elections under the new multi-religious system and protecting all communities during implementation.",
+    un3Title: "International Guarantees",
+    un3Text: "A UN Security Council resolution can provide binding international guarantees for the proportional representation framework, making it harder for any future government to dismantle the system.",
+    un4Title: "Economic Support",
+    un4Text: "International aid and investment can be tied to the successful implementation of the multi-religious system, creating economic incentives for all parties to cooperate.",
+    swedenRole: "Sweden's Contribution",
+    swedenText: "Sweden has been a pioneer in recognizing Palestine and advocating for innovative peace solutions. The Swedish development framework (FDU) has been instrumental in developing and promoting the multi-religious electoral system concept as a practical conflict resolution tool.",
+    swedenLink: "Read the full analysis →",
+    actionItems: "What You Can Do",
+    action1: "Share This App",
+    action1Sub: "Spread awareness about the model",
+    action2: "Follow on Social Media",
+    action2Sub: "Stay updated on developments",
+    action3: "Visit Full Website",
+    action3Sub: "Complete documentation and analysis",
+    socialTitle: "Connect &<br>Share",
+    socialSubtitle: "Follow Religions for Peace across all platforms and help spread the word about this revolutionary peace model.",
+    socialFollow: "Follow",
+    socialSubscribe: "Subscribe",
+    shareApp: "Share the App",
+    shareText: "Help spread awareness about the multi-religious electoral system by sharing this app.",
+    more: "More",
+    qrTitle: "QR Code",
+    qrText: "Scan to open this app on another device",
+    websites: "Websites",
+    web1: "Religions for Peace",
+    web2: "UN's Role for Peace",
+    navHome: "Home",
+    navConcept: "Concept",
+    navConflict: "Conflict",
+    navUN: "UN Role",
+    navSocial: "Share",
+    toastLangChanged: "Language changed to English",
+    toastCopied: "Link copied!",
+    toastShareError: "Share not available"
+  },
+  ar: {
+    splashLoading: "...جارٍ التحميل",
+    appName: "أديان من أجل السلام",
+    langTitle: "اختر اللغة",
+    heroTitle: 'مسار جديد نحو<br><span class="text-olive-300">سلام دائم</span>',
+    heroSubtitle: "نظام الانتخابات متعدد الأديان — نموذج ثوري لحل النزاعات يمكن أن ينهي الصراع الذي استمر 78 عامًا.",
+    heroCta: "استكشف النموذج",
+    statYears: "عامًا من الصراع",
+    statReligions: "أديان متحدة",
+    statSystem: "نظام انتخابي",
+    statHope: "احتمالات للسلام",
+    introCardTitle: "لماذا هذا مهم",
+    introCardText: "فشلت عمليات السلام التقليدية لما يقرب من ثمانية عقود. يقدم نظام الانتخابات متعدد الأديان نهجًا مختلفًا جذريًا — نهج لا يتطلب من أي طرف التخلي عن هويته أو مطالبه.",
+    quickLinks: "استكشف",
+    linkConcept: "المفهوم",
+    linkConceptSub: "كيف يعمل النظام",
+    linkIsrael: "إسرائيل-فلسطين",
+    linkIsraelSub: "تطبيقه على الصراع",
+    linkUN: "دور الأمم المتحدة",
+    linkUNSub: "الإطار الدولي",
+    extLink1: "أديان من أجل السلام — الموقع الكامل",
+    extLink1Url: "multireligionvalsystem.eu.org",
+    extLink2: "دور الأمم المتحدة من أجل السلام",
+    extLink2Url: "FNs-rollspel-for-fred",
+    back: "رجوع",
+    conceptTitle: "نظام الانتخابات<br>متعدد الأديان",
+    conceptSubtitle: "نموذج متفوق لحل النزاعات يحول طريقة مشاركة المجتمعات الدينية المتنوعة في السلطة والحكم معًا.",
+    howItWorks: "كيف يعمل",
+    step1Title: "الاعتراف بالمجتمع الديني",
+    step1Text: "يُعترف بكل مجتمع ديني معترف به (يهودي، مسلم، مسيحي، درزي، وآخرون) كدائرة انتخابية مستقلة بتمثيل مضمون.",
+    step2Title: "التمثيل النسبي",
+    step2Text: "تُخصص المقاعد في الهيئة التشريعية بشكل نسبي بناءً على عدد سكان كل مجتمع ديني، مما يضمن تمثيلاً عادلاً دون هيمنة الأغلبية.",
+    step3Title: "التصويت عبر المجتمعات",
+    step3Text: "يمكن للناخبين الاختيار بين التصويت ضمن دائرتهم الدينية أو عبر المجتمعات، مما يعزز الحوار بين الأديان وبناء التحالفات.",
+    step4Title: "هيكل الحكم المشترك",
+    step4Text: "تُشارك السلطة التنفيذية من خلال رئاسة دورية أو نموذج قيادة مشتركة، مما يضمن عدم سيطرة أي مجموعة دينية واحدة على الحكومة.",
+    step5Title: "إشراف المجلس الديني",
+    step5Text: "يضمن مجلس استشاري متعدد الأديان أن جميع التشريعات تحترم الحساسيات الدينية الأساسية وحقوق كل مجتمع.",
+    advantages: "المزايا الرئيسية",
+    adv1Title: "الحفاظ على الهوية",
+    adv1Text: "لا يُطلب من أي مجتمع التخلي عن هويته الدينية أو الثقافية. النظام يعمل مع الهويات، وليس ضدها.",
+    adv2Title: "توازن القوى",
+    adv2Text: "التناسبية الرياضية تمنع استبداد الأغلبية مع منح كل مجتمع وكالة سياسية ذات معنى.",
+    adv3Title: "حافز الحوار",
+    adv3Text: "التصويت عبر المجتمعات يخلق حوافز طبيعية للسياسيين لبناء الجسور بدلاً من الجدران بين المجموعات الدينية.",
+    adv4Title: "نموذج قابل للتوسع",
+    adv4Text: "يمكن تكييف النظام مع أي منطقة صراع ذات أبعاد دينية أو عرقية — ليس فقط إسرائيل وفلسطين.",
+    comparison: "لماذا هو متفوق",
+    comp1Label: "حل الدولتين",
+    comp2Label: "دولة واحدة ديمقراطية",
+    comp3Label: "النظام متعدد الأديان",
+    compNote: "* تقييم الفعالية بناءً على معايير حل النزاعات (الحفاظ على الهوية، توازن القوى، القابلية للتنفيذ، الاستدامة)",
+    ipTitle: "حل الصراع الذي<br>استمر 78 عامًا",
+    ipSubtitle: "كيف يمكن لنظام الانتخابات متعدد الأديان أن ينجح حيث فشلت كل مبادرات السلام السابقة.",
+    timeline: "الجدول الزمني للمحاولات الفاشلة",
+    tl1947Title: "خطة تقسيم الأمم المتحدة",
+    tl1947Text: "اقترح القرار 181 تقسيم فلسطين — رفضته الدول العربية وقبلته القيادة اليهودية مشروطًا. لم يكن أي طرف راضيًا بالكامل.",
+    tl1978Title: "اتفاقيات كامب ديفيد",
+    tl1978Text: "سلام ثنائي بين مصر وإسرائيل، لكنه ترك الفلسطينيين خارج المعادلة. لا إطار للحكم المشترك.",
+    tl1993Title: "اتفاقيات أوسلو",
+    tl1993Text: "اعتراف متبادل وحكم ذاتي مؤقت، لكن قضايا الوضع النهائي (القدس، اللاجئين، الحدود) ظلت دون حل.",
+    tl2000Title: "كامب ديفيد الثانية / طابا",
+    tl2000Text: "الأقرب لصفقة لكنه انهار بسبب القدس وحق العودة. الإطار الثنائي لم يستطع استيعاب كلا السرديتين.",
+    tlNowLabel: "الآن",
+    tlNowTitle: "نظام الانتخابات متعدد الأديان",
+    tlNowText: "نموذج جديد لا يقسم الأرض ولا يطالب بالتخلي عن الهوية — ينظم مشاركة السلطة من خلال التمثيل المجتمعي الديني.",
+    application: "كيف يُطبق",
+    accJerusalem: "القدس",
+    accJerusalemText: "تصبح القدس عاصمة مشتركة يحكمها مجلس متعدد الأديان بممثلين يهود ومسلمين ومسيحيين. كل مجتمع يدير مواقعه المقدسة الخاصة مع مشاركة الحكم البلدي. لا تقسيم للمدينة — وصاية مشتركة.",
+    accRefugees: "حق العودة",
+    accRefugeesText: "يحصل اللاجئون على حق العودة إلى دولة موحدة حيث يتمتع مجتمعهم الديني بتمثيل سياسي مضمون. يتم معالجة الخوف من الإزاحة الديموغرافية من خلال مشاركة السلطة التناسبية بدلاً من الفصل الإقليمي.",
+    accSecurity: "الأمن",
+    accSecurityText: "جهاز أمني موحد ي oversight من قبل السلطة التنفيذية متعددة الأديان يضمن معالجة مخاوف أمن جميع المجتمعات. لا جيوش منفصلة — قوة واحدة محترفة مسؤولة أمام جميع الدوائر الدينية.",
+    accGovernance: "الحكم",
+    accGovernanceText: "دولة ديمقراطية موحدة ببرلمان تُخصص مقاعده حسب نسبة المجتمع الديني. رئاسة مشتركة دورية (يهودية ومسلمة، مع مشاركة مسيحية) تضمن مشاركة السلطة الرمزية والعملية على أعلى مستوى.",
+    whyFailed: "لماذا فشلت الحلول السابقة",
+    fail1: '<strong class="text-stone-300">حل الدولتين:</strong> من المستحيل رسم حدود يقبلها كلا الجانبين؛ المستوطنات جعلته غير عملي.',
+    fail2: '<strong class="text-stone-300">دولة واحدة بديمقراطية بسيطة:</strong> المخاوف الديموغرافية تجعل كلا السكان يرفضان حكم الأغلبية البسيط.',
+    fail3: '<strong class="text-stone-300">الكونفدرالية:</strong> معقدة جدًا، لا تزال تعتمد على التقسيم الإقليمي.',
+    whyWorks: '<strong class="text-peace-300">النظام متعدد الأديان:</strong> يتجاوز النزاعات الإقليمية بالكامل. يعمل مع الواقع الديموغرافي، وليس ضده. يمنح كل مجتمع قوة مضمونة بغض النظر عن التحولات السكانية.',
+    unTitle: "دور الأمم المتحدة<br>من أجل السلام",
+    unSubtitle: "كيف يمكن للمجتمع الدولي، وتحديدًا الأمم المتحدة، تسهيل تطبيق نظام الانتخابات متعدد الأديان.",
+    unFramework: "إطار الأمم المتحدة",
+    un1Title: "الأساس القانوني",
+    un1Text: "ميثاق الأمم المتحدة والإعلان العالمي لحقوق الإنسان والقرارات الحالية بشأن فلسطين توفر الأساس القانوني لإلزام نظام انتخابي مشاركة السلطة كجزء من اتفاق الوضع النهائي.",
+    un2Title: "فترة الانتقال وحفظ السلام",
+    un2Text: "يمكن لقوات حفظ السلام التابعة للأمم المتحدة الإشراف على فترة الانتقال، وضمان انتخابات حرة ونزيهة ضمن النظام المتعدد الأديان وحماية جميع المجتمعات أثناء التنفيذ.",
+    un3Title: "ضمانات دولية",
+    un3Text: "يمكن لقرار من مجلس الأمن أن يوفر ضمانات دولية ملزمة لإطار التمثيل النسبي، مما يجعل من الصعب على أي حكومة مستقبلية تفكيك النظام.",
+    un4Title: "الدعم الاقتصادي",
+    un4Text: "يمكن ربط المساعدات والاستثمارات الدولية بالتنفيذ الناجح للنظام المتعدد الأديان، مما يخلق حوافز اقتصادية لجميع الأطراف للتعاون.",
+    swedenRole: "مساهمة السويد",
+    swedenText: "كانت السويد رائدة في الاعتراف بفلسطين والدعوة لحلول سلام مبتكرة. كان إطار التنمية السويدي (FDU) حاسمًا في تطوير وتعزيز مفهوم نظام الانتخابات متعدد الأديان كأداة عملية لحل النزاعات.",
+    swedenLink: "→ اقرأ التحليل الكامل",
+    actionItems: "ما يمكنك فعله",
+    action1: "شارك هذا التطبيق",
+    action1Sub: "انشر الوعي حول النموذج",
+    action2: "تابع على وسائل التواصل",
+    action2Sub: "ابقَ على اطلاع بالتطورات",
+    action3: "زر الموقع الكامل",
+    action3Sub: "التوثيق والتحليل الكاملان",
+    socialTitle: "تواصل و<br>شارك",
+    socialSubtitle: "تابع أديان من أجل السلام عبر جميع المنصات وساعد في نشر الكلمة حول نموذج السلام الثوري هذا.",
+    socialFollow: "تابع",
+    socialSubscribe: "اشترك",
+    shareApp: "شارك التطبيق",
+    shareText: "ساعد في نشر الوعي حول نظام الانتخابات متعدد الأديان بمشاركة هذا التطبيق.",
+    more: "المزيد",
+    qrTitle: "رمز QR",
+    qrText: "امسح لفتح هذا التطبيق على جهاز آخر",
+    websites: "المواقع",
+    web1: "أديان من أجل السلام",
+    web2: "دور الأمم المتحدة من أجل السلام",
+    navHome: "الرئيسية",
+    navConcept: "المفهوم",
+    navConflict: "الصراع",
+    navUN: "دور الأممم",
+    navSocial: "مشاركة",
+    toastLangChanged: "تم تغيير اللغة إلى العربية",
+    toastCopied: "تم نسخ الرابط!",
+    toastShareError: "المشاركة غير متاحة"
+  },
+  he: {
+    splashLoading: "...טוען",
+    appName: "דתות למען שלום",
+    langTitle: "בחר שפה",
+    heroTitle: 'דרך חדשה ל<br><span class="text-olive-300">שלום בר קיימא</span>',
+    heroSubtitle: "מערכת הבחירות הרב-דתית — מודל מהפכני לפתרון סכסוכים שיכול לסיים את הסכסוך בן 78 השנים.",
+    heroCta: "גלה את המודל",
+    statYears: "שנות סכסוך",
+    statReligions: "דתות מאוחדות",
+    statSystem: "מערכת בחירות",
+    statHope: "אפשרויות לשלום",
+    introCardTitle: "למה זה חשוב",
+    introCardText: "תהליכי השלום המסורתיים כשלו במשך כמעט שמונה עשורים. מערכת הבחירות הרב-דתית מציעה גישה שונה באופן יסודי — גישה שאינה דורשת מאף צד לנטוש את זהותו או תביעותיו.",
+    quickLinks: "גלה",
+    linkConcept: "הרעיון",
+    linkConceptSub: "איך המערכת עובדת",
+    linkIsrael: "ישראל-פלסטין",
+    linkIsraelSub: "יישום על הסכסוך",
+    linkUN: "תפקיד האו\"ם",
+    linkUNSub: "המסגרת הבינלאומית",
+    extLink1: "דתות למען שלום — אתר מלא",
+    extLink1Url: "multireligionvalsystem.eu.org",
+    extLink2: "תפקיד האו\"ם למען שלום",
+    extLink2Url: "FNs-rollspel-for-fred",
+    back: "חזרה",
+    conceptTitle: "מערכת הבחירות<br>הרב-דתית",
+    conceptSubtitle: "מודל עדיף לפתרון סכסוכים המשנה את האופן שבו קהילות דתיות מגוונות חולקות כוח ומושלות יחד.",
+    howItWorks: "איך זה עובד",
+    step1Title: "הכרה בקהילה הדתית",
+    step1Text: "כל קהילה דתית מוכרת (יהודית, מוסלמית, נוצרית, דרוזית ואחרות) מוכרת כמחוז בחירות נפרד עם ייצוג מובטח.",
+    step2Title: "ייצוג יחסי",
+    step2Text: "המושבים בגוף המחוקק מוקצים באופן יחסי על פי האוכלוסייה בפועל של כל קהילה דתית, להבטחת ייצוג הוגן ללא שליטה של רוב.",
+    step3Title: "הצבעה בין-קהילתית",
+    step3Text: "מצביעים יכולים לבחור להצביע בתוך המחוז הדתי שלהם או בין קהילות, מה שמקדם דיאלוג בין-דתי ובניית קואליציות.",
+    step4Title: "מבנה שלטון משותף",
+    step4Text: "הכוח המבצע משותף באמצעות נשיאות מתחלפת או מודל מנהיגות משותפת, להבטחה שאף קבוצה דתית בודדת לא תשלוט בממשלה.",
+    step5Title: "פיקוח מועצה דתית",
+    step5Text: "מועצה מייעצת רב-דתית מבטיחה שכל החקיקה מכבדת את הרגישויות הדתיות הבסיסיות והזכויות של כל קהילה.",
+    advantages: "יתרונות מרכזיים",
+    adv1Title: "שימור זהות",
+    adv1Text: "לא נדרש מאף קהילה לוותר על זהותה הדתית או התרבותית. המערכת עובדת עם הזהויות, לא נגדן.",
+    adv2Title: "איזון כוחות",
+    adv2Text: "פרופורציונליות מתמטית מונעת עריצות הרוב תוך מתן סוכנות פוליטית משמעותית לכל קהילה.",
+    adv3Title: "תמריץ לדיאלוג",
+    adv3Text: "הצבעה בין-קהילתית יוצרת תמריצים טבעיים לפוליטיקאים לבנות גשרים במקום חומות בין קבוצות דתיות.",
+    adv4Title: "מודל ניתן להרחבה",
+    adv4Text: "ניתן להתאים את המערכת לכל אזור סכסוך עם ממדים דתיים או אתניים — לא רק ישראל ופלסטין.",
+    comparison: "למה המודל עדיף",
+    comp1Label: "פתרון שתי מדינות",
+    comp2Label: "מדינה אחת דמוקרטית",
+    comp3Label: "מערכת רב-דתית",
+    compNote: "* הערכת יעילות מבוססת על קריטריוני פתרון סכסוכים (שימור זהות, איזון כוחות, יישומיות, עמידות)",
+    ipTitle: "פתרון הסכסוך<br>בן 78 השנים",
+    ipSubtitle: "איך מערכת הבחירות הרב-דתית יכולה להצליח שם כל יוזמת שלום קודמת כשלה.",
+    timeline: "ציר הזמן של הניסיונות הכושלים",
+    tl1947Title: "תוכנית החלוקה של האו\"ם",
+    tl1947Text: "החלטה 181 הציעה לחלק את פלשתינה — נדחתה על ידי מדינות ערב, התקבלה בתנאי על ידי ההנהגה היהודית. אף צד לא היה מרוצה לחלוטין.",
+    tl1978Title: "הסכמי קמפ דייוויד",
+    tl1978Text: "שלום דו-צדדי מצרים-ישראל, אבל השאיר את הפלסטינים מחוץ למשוואה. אין מסגרת לממשל משותף.",
+    tl1993Title: "הסכמי אוסלו",
+    tl1993Text: "הכרה הדדית ושלטון עצמי זמני, אבל סוגיות מעמד סופי (ירושלים, פליטים, גבולות) נותרו ללא פתרון.",
+    tl2000Title: "קמפ דייוויד השני / טאבה",
+    tl2000Text: "הכי קרובים להסכם אבל התמוטטו על ירושלים וזכות השיבה. המסגרת הבינארית לא יכלה להכיל את שתי הנרטיבים.",
+    tlNowLabel: "עכשיו",
+    tlNowTitle: "מערכת הבחירות הרב-דתית",
+    tlNowText: "פרדיגמה חדשה שלא מחלקת קרקע ולא דורשת ויתור על זהות — היא מארגנת שיתוף כוח באמצעות ייצוג קהילתי דתי.",
+    application: "איך זה מיושם",
+    accJerusalem: "ירושלים",
+    accJerusalemText: "ירושלים הופכת לבירה משותפת המנוהלת על ידי מועצה רב-דתית עם נציגים יהודים, מוסלמים ונוצרים. כל קהילה מנהלת את האתרים הקדושים שלה תוך שיתוף בממשל העירוני. ללא חלוקת העיר — פיקוח משותף.",
+    accRefugees: "זכות השיבה",
+    accRefugeesText: "פליטים מקבלים את הזכות לשוב למדינה מאוחדת שבה הקהילה הדתית שלהם מובטח ייצוג פוליטי. הפחד מהעתקה דמוגרפית מטופל באמצעות שיתוף כוח פרופורציונלי במקום הפרדה טריטוריאלית.",
+    accSecurity: "ביטחון",
+    accSecurityText: "מנגנון ביטחוני מאוחד בפיקוח הרשות המבצעת הרב-דתית מבטיח שכל חששות הביטחון של כל הקהילות מטופלים. אין צבאות נפרדים — כוח מקצועי אחד אחראי בפני כל המחוזות הדתיים.",
+    accGovernance: "ממשל",
+    accGovernanceText: "מדינה דמוקרטית אחת עם פרלמנט שבו המושבים מוקצים לפי חלקן של הקהילות הדתיות. נשיאות משותפת מתחלפת (יהודית ומוסלמית, עם מעורבות נוצרית) מבטיחה שיתוף כוח סמלי ומעשי ברמה הגבוהה ביותר.",
+    whyFailed: "למה הפתרונות הקודמים כשלו",
+    fail1: '<strong class="text-stone-300">שתי מדינות:</strong> בלתי אפשרי לצייר גבולות ששני הצדדים מקבלים; ההתנחלויות הפכו את זה לבלתי עביר.',
+    fail2: '<strong class="text-stone-300">מדינה אחת דמוקרטית פשוטה:</strong> פחדים דמוגרפיים גורמים לשתי האוכלוסיות לדחות שלטון רוב פשוט.',
+    fail3: '<strong class="text-stone-300">קונפדרציה:</strong> מורכבת מדי, עדיין מסתמכת על חלוקה טריטוריאלית.',
+    whyWorks: '<strong class="text-peace-300">מערכת רב-דתית:</strong> עוקפת סכסוכים טריטוריאליים לחלוטין. עובדת עם המציאות הדמוגרפית, לא נגדה. נותנת לכל קהילה כוח מובטח ללא תלות בשינויים דמוגרפיים.',
+    unTitle: "תפקיד האו\"ם<br>למען שלום",
+    unSubtitle: "איך הקהילה הבינלאומית, ובמיוחד האו\"ם, יכולים להקל על יישום מערכת הבחירות הרב-דתית.",
+    unFramework: "מסגרת האו\"ם",
+    un1Title: "בסיס משפטי",
+    un1Text: "מגילת האו\"ם, ההכרזה לכל באי עולם בדבר זכויות האדם, וההחלטות הקיימות על פלשתינה מספקות את הבסיס המשפטי לחייב מערכת בחירות שיתופית כחלק מהסכם מעמד סופי.",
+    un2Title: "מעבר ושמירת שלום",
+    un2Text: "חיילי שמירת שלום של האו\"ם יכולים לפקח על תקופת המעבר, להבטיח בחירות חופשיות והוגנות תחת המערכת הרב-דתית החדשה ולהגן על כל הקהילות במהלך היישום.",
+    un3Title: "ערבויות בינלאומיות",
+    un3Text: "החלטה של מועצת הביטחון יכולה לספק ערבויות בינלאומיות מחייבות למסגרת הייצוג היחסי, מה שהופך את זה לקשה יותר עבור כל ממשלה עתידית לפרק את המערכת.",
+    un4Title: "תמיכה כלכלית",
+    un4Text: "ניתן לקשור סיוע והשקעה בינלאומית ליישום המוצלח של המערכת הרב-דתית, יצירת תמריצים כלכליים לכל הצדדים לשתף פעולה.",
+    swedenRole: "תרומת שוודיה",
+    swedenText: "שוודיה הייתה חלוצה בהכרה בפלשתין ובקידום פתרונות שלום חדשניים. מסגרת הפיתוח השוודית (FDU) הייתה מכרעת בפיתוח וקידום רעיון מערכת הבחירות הרב-דתית ככלי מעשי לפתרון סכסוכים.",
+    swedenLink: "→ קרא את הניתוח המלא",
+    actionItems: "מה אתה יכול לעשות",
+    action1: "שתף את האפליקציה",
+    action1Sub: "הפץ את המודעות על המודל",
+    action2: "עקוב ברשתות החברתיות",
+    action2Sub: "הישאר מעודכן בהתפתחויות",
+    action3: "בקר באתר המלא",
+    action3Sub: "תיעוד וניתוח מלאים",
+    socialTitle: "התחבר ו<br>שתף",
+    socialSubtitle: "עקוב אחרי דתות למען שלום בכל הפלטפורמות ועזור להפיץ את הבשורה על מודל השלום המהפכני הזה.",
+    socialFollow: "עקוב",
+    socialSubscribe: "הירשם",
+    shareApp: "שתף את האפליקציה",
+    shareText: "עזור להפיץ מודעות על מערכת הבחירות הרב-דתית על ידי שיתוף האפליקציה הזו.",
+    more: "עוד",
+    qrTitle: "קוד QR",
+    qrText: "סרוק לפתיחת האפליקציה במכשיר אחר",
+    websites: "אתרים",
+    web1: "דתות למען שלום",
+    web2: "תפקיד האו\"ם למען שלום",
+    navHome: "בית",
+    navConcept: "רעיון",
+    navConflict: "סכסוך",
+    navUN: "תפקיד או\"ם",
+    navSocial: "שתף",
+    toastLangChanged: "השפה שונתה לעברית",
+    toastCopied: "הקישור הועתק!",
+    toastShareError: "שיתוף לא זמין"
+  },
+  sv: {
+    splashLoading: "Laddar...",
+    appName: "Religioner för Fred",
+    langTitle: "Välj språk",
+    heroTitle: 'En ny väg till<br><span class="text-olive-300">varaktig fred</span>',
+    heroSubtitle: "Det multireligiösa valsystemet — en revolutionär konfliktlösningsmodell som kan avsluta den 78 år långa konflikten.",
+    heroCta: "Utforska modellen",
+    statYears: "År av konflikt",
+    statReligions: "Religioner förenade",
+    statSystem: "Valsystem",
+    statHope: "Möjligheter för fred",
+    introCardTitle: "Varför detta är viktigt",
+    introCardText: "Traditionella fredsprocesser har misslyckats i nästan åtta decennier. Det multireligiösa valsystemet erbjuder en fundamentalt annorlunda ansats — en som inte kräver att någon sida överger sin identitet eller sina krav.",
+    quickLinks: "Utforska",
+    linkConcept: "Konceptet",
+    linkConceptSub: "Hur systemet fungerar",
+    linkIsrael: "Israel-Palestina",
+    linkIsraelSub: "Tillämpning på konflikten",
+    linkUN: "FN:s roll",
+    linkUNSub: "Internationellt ramverk",
+    extLink1: "Religioner för Fred — Fullständig webbplats",
+    extLink1Url: "multireligionvalsystem.eu.org",
+    extLink2: "FN:s roll för fred",
+    extLink2Url: "FNs-rollspel-for-fred",
+    back: "Tillbaka",
+    conceptTitle: "Det multireligiösa<br>valsystemet",
+    conceptSubtitle: "En överlägsen konfliktlösningsmodell som förvandlar hur diversifierade religiösa gemenskaper delar makt och styr tillsammans.",
+    howItWorks: "Hur det fungerar",
+    step1Title: "Religiös gemenskapsigenkänning",
+    step1Text: "Varje erkänd religiös gemenskap (judisk, muslimsk, kristen, drusisk och andra) erkänns som en distinkt valkrets med garanterad representation.",
+    step2Title: "Proportionell representation",
+    step2Text: "Mandaten i den lagstiftande församlingen fördelas proportionellt baserat på den faktiska befolkningen i varje religiös gemenskap, vilket säkrar rättvis representation utan majoritetsdominans.",
+    step3Title: "Korsgemenskaplig röstning",
+    step3Text: "Väljare kan välja att rösta inom sin egen religiösa valkrets eller över gränserna, vilket främjar interreligiös dialog och koalitionsbyggande.",
+    step4Title: "Delad styrelsestruktur",
+    step4Text: "Den verkställande makten delas genom ett roterande presidentskap eller en samledningsmodell, vilket säkerställer att ingen enskild religiös grupp kontrollerar regeringen.",
+    step5Title: "Religiöst råds tillsyn",
+    step5Text: "Ett multireligiöst rådgivande råd säkerställer att all lagstiftning respekterar varje gemenskaps grundläggande religiösa känsligheter och rättigheter.",
+    advantages: "Nyckelfördelar",
+    adv1Title: "Identitetsbevarande",
+    adv1Text: "Ingen gemenskap ombeds överge sin religiösa eller kulturella identitet. Systemet arbetar med identiteter, inte mot dem.",
+    adv2Title: "Maktbalans",
+    adv2Text: "Matematisk proportionalitet förhindrar majoritetens förtryck samtidigt som varje gemenskap får meningsfullt politiskt inflytande.",
+    adv3Title: "Dialogincitament",
+    adv3Text: "Korsgemenskaplig röstning skapar naturliga incitament för politiker att bygga broar istället för murar mellan religiösa grupper.",
+    adv4Title: "Skalerbar modell",
+    adv4Text: "Systemet kan anpassas till alla konfliktzoner med religiösa eller etniska dimensioner — inte bara Israel-Palestina.",
+    comparison: "Varför det är överlägset",
+    comp1Label: "Tvåstatslösningen",
+    comp2Label: "Enstatsdemokrati",
+    comp3Label: "Multireligiöst system",
+    compNote: "* Effektivitetsbedömning baserad på konfliktlösningskriterier (identitetsbevarande, maktbalans, genomförbarhet, hållbarhet)",
+    ipTitle: "Lösning av den<br>78 år långa konflikten",
+    ipSubtitle: "Hur det multireligiösa valsystemet kan lyckas där alla tidigare fredsinitiativ har misslyckats.",
+    timeline: "Tidslinje över misslyckade ansatser",
+    tl1947Title: "FN:s delningsplan",
+    tl1947Text: "Resolution 181 föreslog att dela Palestina — avvisades av arabstater, accepterades villkorligt av judisk ledning. Ingen sida var fullt nöjd.",
+    tl1978Title: "Camp David-avtalet",
+    tl1978Text: "Bilateralt Egypten-Israel-fred, men lämnade palestinierna utanför ekvationen. Inget ramverk för delat styre.",
+    tl1993Title: "Osloavtalen",
+    tl1993Text: "Ömsesidigt erkännande och interimistiskt självstyre, men slutgiltiga statusfrågor (Jerusalem, flyktingar, gränser) förblev olösta.",
+    tl2000Title: "Camp David II / Taba",
+    tl2000Text: "Närmast ett avtal men kollapsade över Jerusalem och flyktingarnas rätt att återvända. Binärt ramverk kunde inte rymma båda narrativen.",
+    tlNowLabel: "Nu",
+    tlNowTitle: "Multireligiösa valsystemet",
+    tlNowText: "Ett nytt paradigme som inte delar land eller kräver identitetsövergivande — det strukturerar maktdelning genom religiös gemenskapsrepresentation.",
+    application: "Hur det tillämpas",
+    accJerusalem: "Jerusalem",
+    accJerusalemText: "Jerusalem blir en delad huvudstad styrd av ett multireligiöst råd med judiska, muslimska och kristna representanter. Varje gemenskap administrerar sina egna heliga platser medan det kommunala styret delas. Ingen delning av staden — gemensamt förvaltarskap.",
+    accRefugees: "Rätt till återvändo",
+    accRefugeesText: "Flyktingar får rätt att återvända till en enad stat där deras religiösa gemenskap har garanterad politisk representation. Rädslan för demografisk förskjutning hanteras genom proportionell maktdelning istället för territoriell separation.",
+    accSecurity: "Säkerhet",
+    accSecurityText: "En enad säkerhetsapparat övervakad av den multireligiösa verkställande makten säkerställer att alla gemenskapers säkerhetsbekymmer hanteras. Inga separata arméer — en professionell styrka ansvarig inför alla religiösa valkretsar.",
+    accGovernance: "Styre",
+    accGovernanceText: "En enda demokratisk stat med ett parlament där mandaten fördelas efter religiös gemenskaps proportion. Ett roterande sam presidentskap (judiskt och muslimskt, med kristet deltagande) säkerställer symbolisk och praktisk maktdelning på högsta nivå.",
+    whyFailed: "Varför tidigare lösningar misslyckades",
+    fail1: '<strong class="text-stone-300">Två stater:</strong> Omöjligt att dra gränser som båda sidor accepterar; bosättningarna har gjort det ogenomförbart.',
+    fail2: '<strong class="text-stone-300">Enstatsdemokrati:</strong> Demografiska rädslor får båda befolkningarna att avvisa enkel majoritetsregel.',
+    fail3: '<strong class="text-stone-300">Konfederation:</strong> För komplext, förlitar sig fortfarande på territoriell delning.',
+    whyWorks: '<strong class="text-peace-300">Multireligiöst system:</strong> Kringgår territoriella tvister helt. Arbetar med demografisk verklighet, inte mot den. Ger varje gemenskap garanterad makt oavsett befolkningsförändringar.',
+    unTitle: "FN:s roll<br>för fred",
+    unSubtitle: "Hur det internationella samfundet, och specifikt Förenta nationerna, kan underlätta genomförandet av det multireligiösa valsystemet.",
+    unFramework: "FN:s ramverk",
+    un1Title: "Juridisk grund",
+    un1Text: "FN-stadgan, den allmänna förklaringen om de mänskliga rättigheterna och befintliga resolutioner om Palestina ger den juridiska grunden för att ålägga ett maktdelande valsystem som del av ett slutstatusavtal.",
+    un2Title: "Fredsbevarande övergång",
+    un2Text: "FN-fredsbevarare kan övervaka övergångsperioden, säkerställa fria och rättvisa val under det nya multireligiösa systemet och skydda alla gemenskaper under genomförandet.",
+    un3Title: "Internationella garantier",
+    un3Text: "Ett säkerhetsrådsbeslut kan ge bindande internationella garantier för ramverket för proportionell representation, vilket gör det svårare för framtida regeringar att demontera systemet.",
+    un4Title: "Ekonomiskt stöd",
+    un4Text: "Internationellt bistånd och investeringar kan kopplas till det framgångsrika genomförandet av det multireligiösa systemet, vilket skapar ekonomiska incitament för alla parter att samarbeta.",
+    swedenRole: "Sveriges bidrag",
+    swedenText: "Sverige har varit pionjär när det gäller att erkänna Palestina och förespråka innovativa fredslösningar. Det svenska utvecklingsramverket (FDU) har varit avgörande för att utveckla och främja konceptet om det multireligiösa valsystemet som ett praktiskt konfliktlösningsverktyg.",
+    swedenLink: "Läs hela analysen →",
+    actionItems: "Vad du kan göra",
+    action1: "Dela denna app",
+    action1Sub: "Sprid medvetenhet om modellen",
+    action2: "Följ på sociala medier",
+    action2Sub: "Håll dig uppdaterad om utvecklingen",
+    action3: "Besök fullständig webbplats",
+    action3Sub: "Komplett dokumentation och analys",
+    socialTitle: "Koppla upp &<br>dela",
+    socialSubtitle: "Följ Religioner för Fred på alla plattformar och hjälp till att sprida ordet om denna revolutionära fredsmodell.",
+    socialFollow: "Följ",
+    socialSubscribe: "Prenumerera",
+    shareApp: "Dela appen",
+    shareText: "Hjälp till att sprida medvetenheten om det multireligiösa valsystemet genom att dela denna app.",
+    more: "Mer",
+    qrTitle: "QR-kod",
+    qrText: "Skanna för att öppna denna app på en annan enhet",
+    websites: "Webbplatser",
+    web1: "Religioner för Fred",
+    web2: "FN:s roll för fred",
+    navHome: "Hem",
+    navConcept: "Koncept",
+    navConflict: "Konflikt",
+    navUN: "FN-roll",
+    navSocial: "Dela",
+    toastLangChanged: "Språket ändrat till svenska",
+    toastCopied: "Länken kopierad!",
+    toastShareError: "Dela inte tillgängligt"
+  }
+};
+
+// ============================================
+// STATE
+// ============================================
+let currentLang = localStorage.getItem('r4p-lang') || 'en';
+let currentScreen = 'home';
+
+// ============================================
+// LANGUAGE
+// ============================================
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('r4p-lang', lang);
+  
+  const isRTL = lang === 'ar' || lang === 'he';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+  
+  // Update body font
+  if (lang === 'ar') {
+    document.body.style.fontFamily = "'Noto Sans Arabic', 'Inter', sans-serif";
+  } else if (lang === 'he') {
+    document.body.style.fontFamily = "'Noto Sans Hebrew', 'Inter', sans-serif";
+  } else {
+    document.body.style.fontFamily = "'Inter', sans-serif";
+  }
+  
+  // Update all i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[lang] && T[lang][key]) {
+      el.innerHTML = T[lang][key];
+    }
+  });
+  
+  // Update lang modal selection
+  document.querySelectorAll('.lang-option').forEach(opt => {
+    const isSelected = opt.getAttribute('data-lang') === lang;
+    opt.classList.toggle('selected', isSelected);
+    opt.querySelector('.check-icon').classList.toggle('hidden', !isSelected);
+  });
+  
+  closeLangModal();
+  showToast(T[lang].toastLangChanged);
+  
+  // Re-trigger reveal animations for current screen
+  setTimeout(() => triggerReveals(), 100);
+}
+
+function openLangModal() {
+  document.getElementById('lang-modal').classList.add('show');
+}
+
+function closeLangModal() {
+  document.getElementById('lang-modal').classList.remove('show');
+}
+
+// ============================================
+// NAVIGATION
+// ============================================
+function navigateTo(screen) {
+  // Hide all screens
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  
+  // Show target screen
+  const target = document.getElementById('screen-' + screen);
+  if (target) {
+    target.classList.add('active');
+    // Scroll to top
+    target.scrollTop = 0;
+    window.scrollTo(0, 0);
+    document.getElementById('main-content').scrollTop = 0;
+  }
+  
+  // Update nav
+  document.querySelectorAll('.nav-item').forEach(n => {
+    n.classList.toggle('active', n.getAttribute('data-screen') === screen);
+  });
+  
+  currentScreen = screen;
+  
+  // Trigger reveals
+  setTimeout(() => triggerReveals(), 50);
+}
+
+// ============================================
+// REVEAL ANIMATIONS
+// ============================================
+function triggerReveals() {
+  const activeScreen = document.querySelector('.screen.active');
+  if (!activeScreen) return;
+  
+  activeScreen.querySelectorAll('.reveal').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 50) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+// ============================================
+// ACCORDION
+// ============================================
+function toggleAccordion(btn) {
+  const content = btn.nextElementSibling;
+  const icon = btn.querySelector('.acc-icon');
+  const isOpen = content.classList.contains('open');
+  
+  // Close all
+  document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+  document.querySelectorAll('.acc-icon').forEach(i => i.style.transform = '');
+  
+  if (!isOpen) {
+    content.classList.add('open');
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
+
+// ============================================
+// SHARE
+// ============================================
+const APP_URL = 'https://fdu.multireligionvalsystem.eu.org/app';
+const SHARE_TEXT = {
+  en: 'Check out the Religions for Peace app — a revolutionary multi-religious electoral system for resolving the Israel-Palestine conflict.',
+  ar: 'اطلع على تطبيق أديان من أجل السلام — نظام انتخابي متعدد الأديان ثوري لحل الصراع الإسرائيلي-الفلسطيني.',
+  he: 'בדוק את אפליקציית דתות למען שלום — מערכת בחירות רב-דתית מהפכנית לפתרון הסכסוך הישראלי-פלסטיני.',
+  sv: 'Kolla in Religioner för Fred-appen — ett revolutionerande multireligiöst valsystem för att lösa Israel-Palestina-konflikten.'
+};
+
+function shareApp() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Religions for Peace',
+      text: SHARE_TEXT[currentLang],
+      url: APP_URL
+    }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(APP_URL).then(() => {
+      showToast(T[currentLang].toastCopied);
+    }).catch(() => {
+      shareGeneric();
+    });
+  }
+}
+
+function shareToWhatsApp() {
+  const text = encodeURIComponent(SHARE_TEXT[currentLang] + ' ' + APP_URL);
+  window.open('https://wa.me/?text=' + text, '_blank');
+}
+
+function shareToTelegram() {
+  const text = encodeURIComponent(SHARE_TEXT[currentLang]);
+  window.open('https://t.me/share/url?url=' + encodeURIComponent(APP_URL) + '&text=' + text, '_blank');
+}
+
+function shareGeneric() {
+  if (navigator.share) {
+    shareApp();
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(APP_URL).then(() => {
+      showToast(T[currentLang].toastCopied);
+    });
+  } else {
+    showToast(T[currentLang].toastShareError);
+  }
+}
+
+// ============================================
+// TOAST
+// ============================================
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// ============================================
+// INIT
+// ============================================
+window.addEventListener('DOMContentLoaded', () => {
+  // Generate QR
+  generateQR();
+  
+  // Splash screen
+  setTimeout(() => {
+    document.getElementById('splash').classList.add('hide');
+    setTimeout(() => {
+      document.getElementById('splash').style.display = 'none';
+      document.getElementById('app').classList.add('show');
+      triggerReveals();
+    }, 600);
+  }, 1800);
+  
+  // Set initial language
+  setLang(currentLang);
+});
+
+// Scroll reveal
+window.addEventListener('scroll', triggerReveals, { passive: true });
+
+// Close lang modal on backdrop click
+document.getElementById('lang-modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('lang-modal')) closeLangModal();
+});
+</script>
+</body>
+</html>
