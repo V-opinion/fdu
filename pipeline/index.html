@@ -1,0 +1,640 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0
+    }
+
+    :root {
+        --bg: #0d0f12;
+        --surface: #151820;
+        --border: #1e2330;
+        --accent: #00e5a0;
+        --accent2: #0066ff;
+        --dim: #2a3040;
+        --text: #e8eaf0;
+        --muted: #5a6070;
+        --danger: #ff4466;
+        --mono: 'JetBrains Mono', monospace;
+        --sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        font-size: 14px;
+        min-height: 100vh;
+        padding: 24px
+    }
+
+    h2 {
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 12px
+    }
+
+    .app {
+        max-width: 680px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    .logo {
+        font-family: var(--mono);
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: -.01em
+    }
+
+    .logo span {
+        color: var(--muted)
+    }
+
+    />.badge {
+        font-family: var(--mono);
+        font-size: 10px;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: var(--dim);
+        color: var(--muted);
+        letter-spacing: .08em
+    }
+
+    .api-row {
+        display: flex;
+        gap: 8px;
+        align-items: center
+    }
+
+    .api-input {
+        flex: 1;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text);
+        outline: none;
+        transition: border-color .2s
+    }
+
+    .api-input:focus {
+        border-color: var(--accent)
+    }
+
+    .api-input::placeholder {
+        color: var(--muted)
+    }
+
+    .btn {
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 500;
+        padding: 10px 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: all .15s;
+        letter-spacing: .04em;
+        white-space: nowrap
+    }
+
+    .btn-primary {
+        background: var(--accent);
+        color: #000
+    }
+
+    .btn-primary:hover {
+        filter: brightness(1.1)
+    }
+
+    .btn-primary:disabled {
+        background: var(--dim);
+        color: var(--muted);
+        cursor: not-allowed
+    }
+
+    .btn-danger {
+        background: var(--danger);
+        color: #fff
+    }
+
+    .btn-danger:hover {
+        filter: brightness(1.1)
+    }
+
+    .btn-ghost {
+        background: var(--surface);
+        color: var(--muted);
+        border: 1px solid var(--border)
+    }
+
+    .btn-ghost:hover {
+        border-color: var(--muted);
+        color: var(--text)
+    }
+
+    .status-bar {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--dim);
+        flex-shrink: 0;
+        transition: background .3s
+    }
+
+    .dot.active {
+        background: var(--accent);
+        box-shadow: 0 0 8px var(--accent)
+    }
+
+    .dot.error {
+        background: var(--danger)
+    }
+
+    .status-text {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+        flex: 1
+    }
+
+    .latency {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--accent);
+        margin-left: auto
+    }
+
+    .transcript-box {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        min-height: 160px;
+        padding: 16px;
+        position: relative;
+        overflow: hidden
+    }
+
+    .transcript-text {
+        font-family: var(--sans);
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--text);
+        min-height: 80px
+    }
+
+    .transcript-text .interim {
+        color: var(--muted);
+        font-style: italic
+    }
+
+    .transcript-text .final {
+        color: var(--text)
+    }
+
+    .placeholder {
+        color: var(--muted);
+        font-style: italic
+    }
+
+    .waveform {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        height: 32px;
+        margin-top: 12px
+    }
+
+    .bar {
+        width: 3px;
+        background: var(--dim);
+        border-radius: 2px;
+        transition: height .1s, background .1s
+    }
+
+    .bar.active {
+        background: var(--accent)
+    }
+
+    .code-block {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden
+    }
+
+    .code-tabs {
+        display: flex;
+        border-bottom: 1px solid var(--border)
+    }
+
+    .tab {
+        font-family: var(--mono);
+        font-size: 11px;
+        padding: 9px 16px;
+        cursor: pointer;
+        color: var(--muted);
+        border-bottom: 2px solid transparent;
+        transition: all .15s;
+        letter-spacing: .04em
+    }
+
+    .tab.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent)
+    }
+
+    .code-content {
+        padding: 0;
+        position: relative
+    }
+
+    .code-pre {
+        font-family: var(--mono);
+        font-size: 12px;
+        line-height: 1.7;
+        padding: 16px;
+        overflow-x: auto;
+        color: #c8cdd8;
+        white-space: pre
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-family: var(--mono);
+        font-size: 10px;
+        padding: 5px 10px;
+        background: var(--dim);
+        border: none;
+        border-radius: 5px;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all .15s
+    }
+
+    .copy-btn:hover {
+        color: var(--text);
+        background: var(--border)
+    }
+
+    .kw {
+        color: #ff79c6
+    }
+
+    .fn {
+        color: #50fa7b
+    }
+
+    .st {
+        color: #f1fa8c
+    }
+
+    .cm {
+        color: #6272a4;
+        font-style: italic
+    }
+
+    .num {
+        color: #bd93f9
+    }
+
+    .prop {
+        color: #8be9fd
+    }
+
+    .controls {
+        display: flex;
+        gap: 8px
+    }
+
+    .llm-out {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px
+    }
+
+    .llm-text {
+        font-family: var(--sans);
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--muted);
+        font-style: italic
+    }
+</style>
+
+<div class="app">
+    <div class="header">
+        <div class="logo">speech<span>/</span>demo</div>
+        <div class="badge">deepgram · live</div>
+    </div>
+
+    <div>
+        <h2>Deepgram API Key</h2>
+        <div class="api-row">
+            <input class="api-input" id="apiKey" type="password" placeholder="dg_xxxxxxxxxxxxxxxxxxxx">
+            <button class="btn btn-primary" id="connectBtn" onclick="connect()">Connect</button>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        <div class="dot" id="dot"></div>
+        <div class="status-text" id="statusText">6f76f2361ec61a0923982803e112e5976b11e2a7</div>
+        <div class="latency" id="latencyLabel"></div>
+    </div>
+
+    <div>
+        <h2>Live Transcript</h2>
+        <div class="transcript-box">
+            <div class="transcript-text" id="transcriptEl"><span class="placeholder">Transcription will appear
+                    here...</span></div>
+            <div class="waveform" id="waveform"></div>
+        </div>
+        <div class="controls" style="margin-top:8px">
+            <button class="btn btn-primary" id="micBtn" onclick="toggleMic()" disabled>Start listening</button>
+            <button class="btn btn-ghost" onclick="clearTranscript()">Clear</button>
+            <button class="btn btn-ghost" id="sendBtn" onclick="sendToLLM()" disabled>→ Send to LLM</button>
+        </div>
+    </div>
+
+    <div>
+        <h2>LLM Response (mock)</h2>
+        <div class="llm-out">
+            <div class="llm-text" id="llmOut">Transcript will be sent here when you click "Send to LLM"</div>
+        </div>
+    </div>
+
+    <div class="code-block">
+        <div class="code-tabs">
+            <div class="tab active" onclick="showTab('browser')">Browser</div>
+            <div class="tab" onclick="showTab('node')">Node.js</div>
+            <div class="tab" onclick="showTab('python')">Python</div>
+        </div>
+        <div class="code-content">
+            <button class="copy-btn" onclick="copyCode()">copy</button>
+            <pre class="code-pre" id="codeEl"></pre>
+        </div>
+    </div>
+</div>
+
+<script>
+    const CODES = {
+        browser: `<span class="cm">// Browser: real-time mic → Deepgram WebSocket</span>
+<span class="kw">const</span> <span class="fn">connectDeepgram</span> = <span class="kw">async</span> (apiKey) => {
+  <span class="kw">const</span> stream = <span class="kw">await</span> navigator.mediaDevices
+    .<span class="fn">getUserMedia</span>({ audio: <span class="kw">true</span> });
+
+  <span class="kw">const</span> ws = <span class="kw">new</span> <span class="fn">WebSocket</span>(
+    <span class="st">'wss://api.deepgram.com/v1/listen'</span> +
+    <span class="st">'?model=nova-2&interim_results=true&smart_format=true'</span>,
+    [<span class="st">'token'</span>, apiKey]
+  );
+
+  ws.<span class="fn">onopen</span> = () => {
+    <span class="kw">const</span> recorder = <span class="kw">new</span> <span class="fn">MediaRecorder</span>(stream, {
+      mimeType: <span class="st">'audio/webm;codecs=opus'</span>
+    });
+    recorder.<span class="fn">addEventListener</span>(<span class="st">'dataavailable'</span>, e => {
+      <span class="kw">if</span> (ws.readyState === WebSocket.<span class="prop">OPEN</span>)
+        ws.<span class="fn">send</span>(e.data);
+    });
+    recorder.<span class="fn">start</span>(<span class="num">250</span>); <span class="cm">// 250ms chunks</span>
+  };
+
+  ws.<span class="fn">onmessage</span> = ({ data }) => {
+    <span class="kw">const</span> res = JSON.<span class="fn">parse</span>(data);
+    <span class="kw">const</span> transcript = res.channel
+      ?.alternatives[<span class="num">0</span>]?.transcript;
+    <span class="kw">const</span> isFinal = res.is_final;
+
+    <span class="kw">if</span> (transcript) <span class="fn">onTranscript</span>(transcript, isFinal);
+  };
+};
+
+<span class="cm">// Hook: called with each transcript chunk</span>
+<span class="kw">const</span> <span class="fn">onTranscript</span> = (text, isFinal) => {
+  <span class="kw">if</span> (isFinal) <span class="fn">sendToLLM</span>(text); <span class="cm">// → your LLM here</span>
+  <span class="kw">else</span> <span class="fn">showInterim</span>(text);       <span class="cm">// live preview</span>
+};`,
+
+        node: `<span class="cm">// Node.js: mic stream → Deepgram SDK</span>
+<span class="kw">import</span> { createClient, LiveTranscriptionEvents }
+  <span class="kw">from</span> <span class="st">'@deepgram/sdk'</span>;
+<span class="kw">import</span> mic <span class="kw">from</span> <span class="st">'mic'</span>;
+
+<span class="kw">const</span> deepgram = <span class="fn">createClient</span>(process.env.<span class="prop">DEEPGRAM_API_KEY</span>);
+
+<span class="kw">const</span> live = deepgram.listen.<span class="fn">live</span>({
+  model: <span class="st">'nova-2'</span>,
+  interim_results: <span class="kw">true</span>,
+  smart_format: <span class="kw">true</span>,
+  vad_events: <span class="kw">true</span>,   <span class="cm">// voice activity detection</span>
+  endpointing: <span class="num">300</span>,    <span class="cm">// ms silence = end of utterance</span>
+});
+
+live.<span class="fn">on</span>(LiveTranscriptionEvents.<span class="prop">Transcript</span>, (data) => {
+  <span class="kw">const</span> { transcript, speech_final } =
+    data.channel.alternatives[<span class="num">0</span>];
+
+  <span class="kw">if</span> (speech_final && transcript) {
+    console.<span class="fn">log</span>(<span class="st">'Final:'</span>, transcript);
+    <span class="fn">sendToLLM</span>(transcript); <span class="cm">// → your LLM</span>
+  }
+});
+
+<span class="cm">// Pipe mic audio to Deepgram</span>
+<span class="kw">const</span> microphone = <span class="fn">mic</span>({ rate: <span class="st">'16000'</span>, channels: <span class="st">'1'</span> });
+microphone.<span class="fn">getAudioStream</span>()
+  .<span class="fn">on</span>(<span class="st">'data'</span>, chunk => live.<span class="fn">send</span>(chunk));
+microphone.<span class="fn">start</span>();`,
+
+        python: `<span class="cm"># Python: mic stream → Deepgram SDK</span>
+<span class="kw">import</span> asyncio, pyaudio
+<span class="kw">from</span> deepgram <span class="kw">import</span> DeepgramClient, LiveTranscriptionEvents
+<span class="kw">from</span> deepgram.clients.live <span class="kw">import</span> LiveOptions
+
+<span class="prop">API_KEY</span> = <span class="st">"6f76f2361ec61a0923982803e112e5976b11e2a7"</span>
+dg = <span class="fn">DeepgramClient</span>(API_KEY)
+
+<span class="kw">async def</span> <span class="fn">transcribe</span>():
+    conn = dg.listen.asynclive.v(<span class="st">"1"</span>)
+
+    <span class="kw">async def</span> <span class="fn">on_message</span>(self, result, **kwargs):
+        sentence = result.channel.alternatives[<span class="num">0</span>].transcript
+        <span class="kw">if</span> result.is_final <span class="kw">and</span> sentence:
+            <span class="fn">print</span>(<span class="st">f"Final: {sentence}"</span>)
+            <span class="kw">await</span> <span class="fn">send_to_llm</span>(sentence)  <span class="cm"># → your LLM</span>
+
+    conn.<span class="fn">on</span>(LiveTranscriptionEvents.<span class="prop">Transcript</span>, on_message)
+
+    options = <span class="fn">LiveOptions</span>(
+        model=<span class="st">"nova-2"</span>,
+        interim_results=<span class="kw">True</span>,
+        smart_format=<span class="kw">True</span>,
+        vad_events=<span class="kw">True</span>,
+        endpointing=<span class="num">300</span>,
+    )
+    <span class="kw">await</span> conn.<span class="fn">start</span>(options)
+
+    p = pyaudio.<span class="fn">PyAudio</span>()
+    stream = p.<span class="fn">open</span>(format=pyaudio.<span class="prop">paInt16</span>,
+        channels=<span class="num">1</span>, rate=<span class="num">16000</span>,
+        input=<span class="kw">True</span>, frames_per_buffer=<span class="num">3200</span>)
+
+    <span class="kw">while True</span>:
+        data = stream.<span class="fn">read</span>(<span class="num">3200</span>)
+        <span class="kw">await</span> conn.<span class="fn">send</span>(data)
+
+asyncio.<span class="fn">run</span>(<span class="fn">transcribe</span>())`
+    };
+
+    let ws = null, recorder = null, stream = null;
+    let finalText = '', interimText = '';
+    let isListening = false;
+    let lastPing = 0;
+
+    // Build waveform bars
+    const wv = document.getElementById('waveform');
+    for (let i = 0; i < 40; i++) { const b = document.createElement('div'); b.className = 'bar'; b.style.height = '4px'; wv.appendChild(b); }
+    const bars = wv.querySelectorAll('.bar');
+    let animFrame;
+
+    function animateBars(active) {
+        if (!active) { bars.forEach(b => { b.style.height = '4px'; b.classList.remove('active'); }); return; }
+        bars.forEach(b => {
+            b.style.height = Math.random() * 22 + 4 + 'px';
+            b.classList.toggle('active', Math.random() > .4);
+        });
+        animFrame = requestAnimationFrame(() => setTimeout(() => animateBars(active), 80));
+    }
+
+    function setStatus(text, state = 'idle') {
+        document.getElementById('statusText').textContent = text;
+        const dot = document.getElementById('dot');
+        dot.className = 'dot' + (state === 'active' ? ' active' : state === 'error' ? ' error' : '');
+    }
+
+    function showTab(t) {
+        document.querySelectorAll('.tab').forEach((el, i) => el.classList.toggle('active', ['browser', 'node', 'python'][i] === t));
+        document.getElementById('codeEl').innerHTML = CODES[t];
+    }
+
+    function copyCode() {
+        const txt = document.getElementById('codeEl').innerText;
+        navigator.clipboard.writeText(txt);
+        const b = document.querySelector('.copy-btn'); b.textContent = 'copied!'; setTimeout(() => b.textContent = 'copy', 1500);
+    }
+
+    function updateTranscript() {
+        const el = document.getElementById('transcriptEl');
+        if (!finalText && !interimText) { el.innerHTML = '<span class="placeholder">Transcription will appear here...</span>'; return; }
+        el.innerHTML = (finalText ? `<span class="final">${finalText} </span>` : '') +
+            (interimText ? `<span class="interim">${interimText}</span>` : '');
+        document.getElementById('sendBtn').disabled = !finalText;
+    }
+
+    function clearTranscript() { finalText = ''; interimText = ''; updateTranscript(); document.getElementById('llmOut').textContent = 'Transcript will be sent here when you click "Send to LLM"'; document.getElementById('llmOut').style.color = 'var(--muted)'; }
+
+    async function connect() {
+        const key = document.getElementById('apiKey').value.trim();
+        if (!key) { setStatus('6f76f2361ec61a0923982803e112e5976b11e2a7', 'error'); return; }
+        setStatus('Requesting microphone...', 'idle');
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            setStatus('Microphone granted — ready to listen', 'idle');
+            document.getElementById('micBtn').disabled = false;
+            document.getElementById('connectBtn').disabled = true;
+        } catch (e) { setStatus('Mic access denied: ' + e.message, 'error'); }
+    }
+
+    function toggleMic() {
+        if (isListening) stopListening(); else startListening();
+    }
+
+    function startListening() {
+        const key = document.getElementById('apiKey').value.trim();
+        if (!key || !stream) { setStatus('Connect first', 'error'); return; }
+        const url = 'wss://api.deepgram.com/v1/listen?model=nova-2&interim_results=true&smart_format=true&vad_events=true&endpointing=300';
+        ws = new WebSocket(url, ['token', key]);
+        ws.onopen = () => {
+            setStatus('Connected · listening...', 'active');
+            isListening = true;
+            document.getElementById('micBtn').textContent = 'Stop listening';
+            document.getElementById('micBtn').className = 'btn btn-danger';
+            animateBars(true);
+            lastPing = Date.now();
+            recorder = new MediaRecorder(stream, { mimeType: 'audio/webm;codecs=opus' });
+            recorder.addEventListener('dataavailable', e => { if (ws.readyState === 1) ws.send(e.data); });
+            recorder.start(250);
+        };
+        ws.onmessage = ({ data }) => {
+            try {
+                const res = JSON.parse(data);
+                const t = res.channel?.alternatives?.[0]?.transcript || '';
+                const lat = Date.now() - lastPing;
+                lastPing = Date.now();
+                if (res.is_final && t) { finalText += (finalText ? ' ' : '') + t; interimText = ''; }
+                else if (t) { interimText = t; }
+                if (lat < 2000) document.getElementById('latencyLabel').textContent = lat + 'ms';
+                updateTranscript();
+            } catch (_) { }
+        };
+        ws.onerror = () => setStatus('WebSocket error — check API key', 'error');
+        ws.onclose = () => { if (isListening) stopListening(true); };
+    }
+
+    function stopListening(silent) {
+        isListening = false;
+        if (recorder && recorder.state !== 'inactive') recorder.stop();
+        if (ws) ws.close();
+        cancelAnimationFrame(animFrame);
+        animateBars(false);
+        document.getElementById('micBtn').textContent = 'Start listening';
+        document.getElementById('micBtn').className = 'btn btn-primary';
+        if (!silent) setStatus('Stopped · transcript ready');
+    }
+
+    async function sendToLLM() {
+        if (!finalText) return;
+        const out = document.getElementById('llmOut');
+        out.style.color = 'var(--accent)';
+        out.textContent = 'Sending to LLM: "' + finalText + '"…';
+        await new Promise(r => setTimeout(r, 800));
+        out.style.color = 'var(--text)';
+        out.textContent = '[Mock LLM response] You said: "' + finalText + '". In a real build, this text goes to your Claude / GPT-4 API call, and the response gets sent to your TTS engine.';
+    }
+
+    // Init
+    showTab('browser');
+    setStatus('Enter your API key to begin');
+</script>
