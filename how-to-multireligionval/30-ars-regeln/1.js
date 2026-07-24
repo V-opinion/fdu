@@ -1,27 +1,27 @@
 window.local_cycleBottomradio_v8_6_data = [
 {
- bulletimage: "fns%20rollspel_htm_files/414.png",
- image: "fns%20rollspel_htm_files/415.jpg",
+ bulletimage: "https://fdu.multireligionvalsystem.eu.org/how-to-multireligionval/30-ars-regeln/414.png",
+ image: "https://fdu.multireligionvalsystem.eu.org/how-to-multireligionval/30-ars-regeln/415.jpg",
  link: "#"
 },
 {
- image: "fns%20rollspel_htm_files/416.png",
+ image: "https://fdu.multireligionvalsystem.eu.org/how-to-multireligionval/30-ars-regeln/416.png",
  link: "#"
 },
 {
- image: "fns%20rollspel_htm_files/417.jpg",
+ image: "https://fdu.multireligionvalsystem.eu.org/how-to-multireligionval/30-ars-regeln/417.jpg",
  link: "#"
 },
 {
- image: "fns%20rollspel_htm_files/418.jpg",
+ image: "https://fdu.multireligionvalsystem.eu.org/how-to-multireligionval/30-ars-regeln/418.jpg",
  link: "#"
 },
 {
- image: "fns%20rollspel_htm_files/419.jpg",
+ image: "https://fdu.multireligionvalsystem.eu.org/how-to-multireligionval/30-ars-regeln/419.jpg",
  link: "#"
 },
 {
- image: "fns%20rollspel_htm_files/420.jpg",
+ image: "https://fdu.multireligionvalsystem.eu.org/how-to-multireligionval/30-ars-regeln/420.jpg",
  link: "#"
 }
 ];
