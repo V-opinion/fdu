@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FDU — Democratic Reform, Religious Pluralism & Conflict Resolution</title>
+  <meta name="description" content="Explore FDU's framework for multi-religion election reform, democratic representation, and peaceful conflict resolution.">
+  <link rel="canonical" href="https://fdu.multireligionvalsystem.eu.org/">
+  <link rel="next" href="https://fdu.multireligionvalsystem.eu.org/Political-Practices-in_Exile.html">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #1e40af;
+      --primary-hover: #1d4ed8;
+      --accent-soft: #eff6ff;
+      --border: #e2e8f0;
+      --radius: 10px;
+      --max-w: 1120px;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* 1. Header & 6-Category Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.45rem 0.7rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover,
+    .nav-item:focus-within > .nav-link {
+      background: var(--bg-alt);
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      padding: 0.45rem;
+      list-style: none;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      border-radius: 6px;
+    }
+
+    .dropdown a:hover {
+      background: var(--accent-soft);
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .lang-pill {
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      font-size: 0.85rem;
+      padding: 0.4rem 0.7rem;
+    }
+
+    .nav-item--right .dropdown {
+      left: auto;
+      right: 0;
+      min-width: 140px;
+    }
+
+    /* 2. Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      background: #dbeafe;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.85rem);
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      max-width: 22ch;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      max-width: 62ch;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.35rem;
+      font-weight: 600;
+      font-size: 0.98rem;
+      border-radius: 8px;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+      text-decoration: none;
+    }
+
+    /* Shared Section Layout */
+    section {
+      padding: 3.75rem 0;
+    }
+
+    .section-alt {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.65rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 60ch;
+    }
+
+    /* 3. Start Here 3-Step Reading Path */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .step-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .step-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .step-card p {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .card-link {
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+
+    /* 4. Explore by Topic (2x2 Grid) */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .topic-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .topic-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .topic-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .topic-links a {
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    /* 5. Media & Archive Strip */
+    .media-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .media-strip h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .media-strip p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .media-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* 6. Next-Page Continuation & Footer */
+    .next-banner {
+      background: var(--accent-soft);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .next-banner span {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .next-banner h2 {
+      font-size: 1.3rem;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.25rem 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .topics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-toggle {
+        display: inline-block;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 0.75rem 1.25rem 1.25rem;
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+      }
+
+      .nav-menu.is-open {
+        display: flex;
+      }
+
+      .nav-link {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.65rem 0.5rem;
+      }
+
+      .dropdown {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-left: 2px solid var(--border);
+        border-radius: 0;
+        padding: 0.25rem 0 0.25rem 0.75rem;
+        margin-left: 0.5rem;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Clean 6-Category Header -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="https://fdu.multireligionvalsystem.eu.org/" class="brand">FDU<span>.</span></a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" id="menu-btn">
+        Menu
+      </button>
+
+      <ul class="nav-menu" id="primary-menu">
+        <li class="nav-item">
+          <a href="#start-here" class="nav-link">FDU &amp; Vision</a>
+          <ul class="dropdown">
+            <li><a href="https://fdu.multireligionvalsystem.eu.org/">What is FDU?</a></li>
+            <li><a href="https://fdu.multireligionvalsystem.eu.org/tre-reformer-som-forandrar-varlden/">Three Core Reforms</a></li>
+            <li><a href="https://multireligionvalsystem.eu.org/FAQ">FAQ</a></li>
+            <li><a href="https://multireligionvalsystem.eu.org/about">About &amp; Contact</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#topics" class="nav-link">Election &amp; Democracy</a>
+          <ul class="dropdown">
+            <li><a href="https://a-multi-religion-election-system.multireligionvalsystem.eu.org/">Multi-Religion Election System</a></li>
+            <li><a href="https://www.multireligionvalsystem.eu.org/kyrkovalsreformen/">Church Election Reform</a></li>
+            <li><a href="https://multireligionvalsystem.eu.org/a-parallel-parliament/">A Parallel Parliament</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#topics" class="nav-link">Religion &amp; Society</a>
+          <ul class="dropdown">
+            <li><a href="https://fdu.multireligionvalsystem.eu.org/religion-och-politik">Religion &amp; Politics</a></li>
+            <li><a href="https://multireligionvalsystem.eu.org/religious-pluralism.html">Religious Pluralism</a></li>
+            <li><a href="https://multireligionvalsystem.eu.org/comparison/hinduism-vs-buddhism.html">Tradition Comparisons</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#topics" class="nav-link">Peace &amp; Conflict</a>
+          <ul class="dropdown">
+            <li><a href="https://multireligionvalsystem.eu.org/Conflict-resolution-model/">Conflict Resolution Model</a></li>
+            <li><a href="https://fdu.multireligionvalsystem.eu.org/Political-Practices-in_Exile.html">Political Practices in Exile</a></li>
+            <li><a href="https://fdu.multireligionvalsystem.eu.org/migrationspolitik/">Migration &amp; Refugee Policy</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#media" class="nav-link">Media &amp; Archive</a>
+          <ul class="dropdown">
+            <li><a href="https://open.spotify.com/show/1xGfGGcgy0zZ0NJ7l3ykxX" target="_blank" rel="noopener">Podcast (Spotify) ↗</a></li>
+            <li><a href="https://canvanizer.com/slideshow/wE5JLBHTa9wxv" target="_blank" rel="noopener">Slideshow Overview ↗</a></li>
+            <li><a href="https://blog.multireligionvalsystem.eu.org/">Full Blog &amp; Archive</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item nav-item--right">
+          <a href="#lang" class="nav-link lang-pill">SV / EN</a>
+          <ul class="dropdown">
+            <li><a href="https://fdu.multireligionvalsystem.eu.org/?lang=sv">Svenska</a></li>
+            <li><a href="https://fdu.multireligionvalsystem.eu.org/?lang=en">English</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Above-the-Fold Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">FDU · Multi-Religion Election System</span>
+        <h1>Democratic Reform, Religious Pluralism &amp; Conflict Resolution</h1>
+        <p>
+          FDU explores practical institutional reforms that separate political power from religious privilege—connecting modern electoral representation with long-term peacebuilding and democracy in exile.
+        </p>
+        <div class="hero-actions">
+          <a href="#start-here" class="btn btn-primary">Start Reading: 3-Step Guide ↓</a>
+          <a href="https://multireligionvalsystem.eu.org/FAQ" class="btn btn-secondary">Read the FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Guided "Start Here" Reading Path -->
+    <section id="start-here">
+      <div class="container">
+        <div class="section-header">
+          <h2>Start Here: Understand FDU in 3 Steps</h2>
+          <p>New to the platform? Follow this short reading path before diving into specific policy papers and archives.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-badge">Step 1 · Foundation</span>
+            <h3>Three Reforms That Change Society</h3>
+            <p>
+              Start with the core thesis behind FDU and learn how structural democratic reforms address representation gaps across diverse communities.
+            </p>
+            <a href="https://fdu.multireligionvalsystem.eu.org/tre-reformer-som-forandrar-varlden/" class="card-link">Read Step 1 →</a>
+          </article>
+
+          <article class="step-card">
+            <span class="step-badge">Step 2 · The Model</span>
+            <h3>How the Multi-Religion Election System Works</h3>
+            <p>
+              See how church election reform (<em>Kyrkovalet</em>) and parallel democratic structures can evolve toward inclusive, equal representation.
+            </p>
+            <a href="https://www.multireligionvalsystem.eu.org/kyrkovalsreformen/" class="card-link">Read Step 2 →</a>
+          </article>
+
+          <article class="step-card">
+            <span class="step-badge">Step 3 · Application</span>
+            <h3>Political Practices in Exile &amp; Peacebuilding</h3>
+            <p>
+              Discover how these governance principles apply to refugees, political participation in exile, and sustainable conflict resolution.
+            </p>
+            <a href="https://fdu.multireligionvalsystem.eu.org/Political-Practices-in_Exile.html" class="card-link">Read Step 3 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Explore by Topic (4 Core Category Cards) -->
+    <section id="topics" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Explore by Core Topic</h2>
+          <p>Jump directly to the subject area most relevant to your research or interest.</p>
+        </div>
+
+        <div class="topics-grid">
+          <div class="topic-card">
+            <h3>FDU &amp; Vision</h3>
+            <p>Core principles, institutional proposals, and answers to common questions.</p>
+            <ul class="topic-links">
+              <li><a href="https://fdu.multireligionvalsystem.eu.org/tre-reformer-som-forandrar-varlden/">Three Reforms That Change the World →</a></li>
+              <li><a href="https://multireligionvalsystem.eu.org/FAQ">Frequently Asked Questions (FAQ) →</a></li>
+              <li><a href="https://multireligionvalsystem.eu.org/about">About FDU &amp; Background →</a></li>
+            </ul>
+          </div>
+
+          <div class="topic-card">
+            <h3>Election &amp; Democracy</h3>
+            <p>Electoral reform, church elections, and democratic representation models.</p>
+            <ul class="topic-links">
+              <li><a href="https://a-multi-religion-election-system.multireligionvalsystem.eu.org/">Multi-Religion Election System Overview →</a></li>
+              <li><a href="https://www.multireligionvalsystem.eu.org/kyrkovalsreformen/">Church Election Reform (Kyrkovalet) →</a></li>
+              <li><a href="https://multireligionvalsystem.eu.org/a-parallel-parliament/">A Parallel Parliament Model →</a></li>
+            </ul>
+          </div>
+
+          <div class="topic-card">
+            <h3>Religion &amp; Society</h3>
+            <p>Religious pluralism, state-church relations, and comparative traditions.</p>
+            <ul class="topic-links">
+              <li><a href="https://fdu.multireligionvalsystem.eu.org/religion-och-politik">Religion &amp; Politics →</a></li>
+              <li><a href="https://multireligionvalsystem.eu.org/religious-pluralism.html">Religious Pluralism in Practice →</a></li>
+              <li><a href="https://multireligionvalsystem.eu.org/comparison/hinduism-vs-buddhism.html">Comparative Tradition Studies →</a></li>
+            </ul>
+          </div>
+
+          <div class="topic-card">
+            <h3>Peace &amp; Conflict</h3>
+            <p>Conflict resolution frameworks, exile politics, and migration policy.</p>
+            <ul class="topic-links">
+              <li><a href="https://multireligionvalsystem.eu.org/Conflict-resolution-model/">Conflict Resolution Model →</a></li>
+              <li><a href="https://fdu.multireligionvalsystem.eu.org/Political-Practices-in_Exile.html">Political Practices in Exile →</a></li>
+              <li><a href="https://fdu.multireligionvalsystem.eu.org/migrationspolitik/">Migration &amp; Refugee Policy →</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Media & Archive + Next-Page Prompt -->
+    <section id="media">
+      <div class="container" style="display: grid; gap: 1.5rem;">
+        <div class="media-strip">
+          <div>
+            <h2>Prefer Audio, Slides, or the Full Archive?</h2>
+            <p>Explore companion podcasts, visual presentations, and extended articles.</p>
+          </div>
+          <div class="media-links">
+            <a href="https://open.spotify.com/show/1xGfGGcgy0zZ0NJ7l3ykxX" target="_blank" rel="noopener" class="btn btn-secondary">Listen on Spotify ↗</a>
+            <a href="https://canvanizer.com/slideshow/wE5JLBHTa9wxv" target="_blank" rel="noopener" class="btn btn-secondary">View Slideshow ↗</a>
+            <a href="https://blog.multireligionvalsystem.eu.org/" class="btn btn-secondary">Browse Blog &amp; Archive</a>
+          </div>
+        </div>
+
+        <div class="next-banner">
+          <div>
+            <span>Continue Reading · Next Chapter</span>
+            <h2>Political Practices in Exile</h2>
+          </div>
+          <a href="https://fdu.multireligionvalsystem.eu.org/Political-Practices-in_Exile.html" class="btn btn-primary">Read Next Page →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6. Compact Footer -->
+  <footer class="site-footer" id="lang">
+    <div class="container footer-inner">
+      <div>
+        <strong>FDU</strong> · Multi-Religion Election System
+      </div>
+      <div class="footer-links">
+        <a href="mailto:info@multireligionvalsystem.eu.org">info@multireligionvalsystem.eu.org</a>
+        <a href="https://community.multireligionvalsystem.eu.org/">Feedback</a>
+        <a href="https://fdu.multireligionvalsystem.eu.org/?lang=sv">Svenska</a>
+        <a href="https://fdu.multireligionvalsystem.eu.org/?lang=en">English</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const primaryMenu = document.getElementById('primary-menu');
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      primaryMenu.classList.toggle('is-open');
+    });
+  </script>
+</body>
+</html>
